@@ -1,0 +1,32 @@
+//- 组件类-表单元素样式
+//- 搜索框
+._search {
+	width: 390px;
+	height: 31px;
+	background: url('../../img/index_11.png');
+	position: relative;
+	float: left;
+	margin-top: 30px;
+	margin-left: 15px;
+
+	.key {
+		width: 305px;
+		height: 29px;
+		border: 0;
+		left: 1px;
+		position: absolute;
+		top: 1px;
+	}
+
+	a {
+		width: 86px;
+		position: absolute;
+		display: block;
+		right: 0;
+		color: #fff;
+		line-height: 29px;
+		font-weight: bold;
+		font-size: 16px;
+		text-align: center;
+	}
+}

@@ -1,0 +1,18 @@
+//- 组件类-页脚样式
+._footer {
+	margin-top: 20px;
+    margin-bottom: 15px;
+
+    .box {
+		margin-top: 15px;
+		text-align: center;
+
+		a:hover {
+			color: #800000;
+		}
+	}
+
+	.code {
+    	text-align: center;
+	}
+}

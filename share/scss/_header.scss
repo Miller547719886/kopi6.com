@@ -1,0 +1,56 @@
+//- 组件类-页头样式
+._head {
+	.htop {
+		.scroll {
+			width: 580px;
+		    line-height: 24px;
+		    overflow: hidden;
+		}
+
+		.txt {
+			position: relative;
+			width: 365px;
+			height: 24px;
+			background: url('../../img/index_02.png');
+			float: right;
+			line-height: 24px;
+			overflow: hidden;
+			padding-left: 35px;
+		}
+	}
+
+	.mid {
+		margin-bottom: 5px;
+
+		.logo {
+			display: block;
+			width: 280px;
+			height: 80px;
+			float: left;
+		}
+
+		.cart {
+			width: 280px;
+			margin-top: 10px;
+			float: right;
+			position: relative;
+
+			a {
+				img {
+					display: inline-block;
+					position: relative;
+					top: 7px;
+					margin: 0 30px;
+				}
+			}
+		}
+	}
+
+	.author {
+		margin: 10px 0;
+		
+		a:hover {
+			color: #800000;
+		}
+	}
+}
