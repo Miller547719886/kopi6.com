@@ -3,11 +3,11 @@
 ._search {
 	width: 390px;
 	height: 31px;
-	background: url('../../img/index_11.png');
 	position: relative;
 	float: left;
 	margin-top: 30px;
 	margin-left: 15px;
+	background-image: url(../img/index_11.png);
 
 	.key {
 		width: 305px;
@@ -29,4 +29,36 @@
 		font-size: 16px;
 		text-align: center;
 	}
+}
+
+//- 搜索列表
+._search-list {
+    background: #ededed;
+    line-height: 35px;
+    padding: 3px 18px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #282828;
+
+    select,input {
+    	font-size: 13px;
+    	padding: 2px;
+    }
+
+    select.type,select.brands {
+    	width: 180px;
+    }
+
+    input.price {
+    	width: 50px;
+    	text-align: center;
+    }
+ 
+    .search-btn {
+	    background: #3f3f3f;
+	    color: #fff;
+	    width: 60px;
+	    padding: 3px;
+	    font-weight: bold;
+    }
 }

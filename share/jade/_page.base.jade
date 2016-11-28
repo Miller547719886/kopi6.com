@@ -9,7 +9,7 @@ html
 		meta(http-equiv="Content-Type",content="charset=utf-8")
 		meta(http-equiv="X-UA-Compatible",content="IE=edge,chrome=1")
 		block css-js
-			link(rel="stylesheet", type="text/css",href="../css/kopi6.min.css")
+			link(rel="stylesheet", type="text/css",href="kopi6.min.css")
 			block spec-css-js
 
 	//- 导入mixin集合
@@ -19,10 +19,7 @@ html
 		.wrap-1000
 			block header
 				+_header
-			//- 有banner轮播的页面(现有index)
-			if (pageClass == 'index')
-				block banner
-					+_banner
+			block banner
 			block main
 
 
@@ -31,6 +28,6 @@ html
 				+_footer
 			block side_bar
 	block script
-		script(src="../../plugins/jquery-1.12.4/jquery.1.12.4.min.js")
+		script(src="../plugins/jquery-1.12.4/jquery.1.12.4.min.js")
 		block spec-script
 

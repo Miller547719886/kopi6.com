@@ -2,10 +2,10 @@
 
 var gulp = require('gulp'),                         // gulp核心模块
 	DEST = 'build',                                 // 编译目录 
-	CSS_DEST = 'var/build/css',                         // css编译目录
+	CSS_DEST = 'var/build',                         // css编译目录
 	JS_DEST = 'var/js',                           // js编译目录
 	IMG_DEST = 'var/img',                        // img编译目录
-	HTML_DEST = 'var/build/html',                       // html编译目录
+	HTML_DEST = 'var/build',                       // html编译目录
 	WEB_PORT = 80,                                // 服务器监听的端口
 	$ = require('gulp-load-plugins')();             // gulp插件加载模块
 	
@@ -28,9 +28,9 @@ var gulp = require('gulp'),                         // gulp核心模块
 	// 	livereload = require('gulp-livereload');     // 浏览器即时刷新
 		    
 
-// 处理sass
+// 处理样式
 gulp.task('styles', function() {
-	return gulp.src('share/scss/**/kopi6.scss')
+	return gulp.src(['share/scss/**/kopi6.scss','share/spriteCSS/**/*.css'])
 		.pipe($.sass())
 		.pipe($.autoprefixer('last 2 version','safari 5','ie 8','ie 9','opera 12.1','ios 6','android 4'))
 		.pipe($.minifyCss())
@@ -77,7 +77,7 @@ gulp.task('scripts', function() {
 
 // 处理图片
 gulp.task('images', function() {
-	return gulp.src(['share/img/**/*.png','share/img/**/*.jpg','share/img/**/*.gif'])
+	return gulp.src(['share/img/**/*.*','!share/img/sprite/**/*.*'])
 		.pipe($.cache($.imagemin({
 			optimizationLevel: 3,
 			progressive: true,
@@ -88,6 +88,15 @@ gulp.task('images', function() {
 		.pipe($.notify({
 			message: 'Images task complete'
 		}))
+});
+
+// 合并雪碧图
+gulp.task('sprite',function () {
+	var spriteData = gulp.src('share/img/sprite/sprite_1/*.*').pipe($.spritesmith({
+	    imgName: 'var/img/sprite_1.png',
+	    cssName: 'share/spriteCSS/sprite_1.css'
+	}));
+	return spriteData.pipe(gulp.dest('./'));
 });
 
 // 清理build目录
@@ -116,6 +125,9 @@ gulp.task('watch', function() {
 	// 监听livereload
 	$.livereload.listen();
 
+	// 监听sprite
+	gulp.watch('share/img/sprite/**/*.*', ['sprite']);
+
 	// 监听sass
 	gulp.watch('share/scss/**/*.scss', ['styles']);
 
@@ -132,7 +144,7 @@ gulp.task('watch', function() {
 
 // build任务
 gulp.task('build', function(cb){
-	$.sequence('clean',['styles','scripts','images','htmls','watch'])(cb)
+	$.sequence('clean',['sprite','styles','scripts','images','htmls','watch'])(cb)
 });
 
 // 主任务
