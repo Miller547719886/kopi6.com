@@ -62,3 +62,64 @@
 	    font-weight: bold;
     }
 }
+
+//- 登录框
+._login {
+	margin-bottom: 15px;
+
+	.title {
+	    background: #393939;
+	    font-size: 14px;
+	    color: #fff;
+	    text-align: center;
+	    padding: 0 25px;
+	}
+
+	li {
+		white-space: nowrap;
+		line-height: 35px;
+		padding: 0 10px;
+	}
+
+	ul.login-1 {
+		li {
+			span {
+				display: inline-block;
+    			width: 80px;
+			}
+
+			input.ipt {
+			    width: 90px;
+			}
+
+			input.validate {
+			    width: 44px;
+			}
+
+			img {
+				display: inline-block;
+
+				&.vali-img {
+					cursor: pointer;
+				    width: 44px !important;
+				    height: 23px;
+				    margin-top: 6px;
+				    position: absolute;
+				}
+			}
+
+			a {
+				text-decoration: none;
+    			color: #000;
+			}
+		}
+	}
+
+	ul.login-2 {
+		display: none;
+
+		&.active {
+			display: block;
+		}
+	}
+}

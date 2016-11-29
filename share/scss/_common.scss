@@ -1,7 +1,7 @@
 //- 功能类-自定义公用样式
 body {
-	color: #333;
-    font: normal 12px/1.6 'Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif';
+    color: #000;
+    font: normal 12px/1.6 'Microsoft YaHei';
 }
 
 a:hover {
@@ -32,5 +32,20 @@ a:hover {
 .border {
     border: 1px solid #b5b5b5;
 }
+
+.left {
+	width: 201px;
+}
+
+.right {
+    width: 778px;
+    float: right;
+}
+
+.top {
+    margin-top: 15px;
+}
+
+
 
 
