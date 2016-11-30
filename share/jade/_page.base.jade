@@ -19,13 +19,16 @@ html
 		.wrap-1000
 			block header
 				+_header
+			//- 默认无banner
 			block banner
+			//- 默认左右结构
 			block main
 				.right.top.fn-clear
 					block right
 				.left.top.fn-clear
 					block left
 						+_login
+						+_ems
 			block footer
 				+_footer
 			block side_bar

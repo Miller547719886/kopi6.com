@@ -9,51 +9,7 @@ block banner
 	+_banner
 	+_search-list
 block spec-script
-	script.
-		function switchPic (_a,_b) {
-			_a.each(function (ele,i) {
-			var _this = $(this);
-				if(_this.hasClass('active')) {
-					var _index = _a.index(_this);
-					var b_this = _b.eq(_index);
-					b_this.addClass('active').siblings().removeClass('active');
-				}
-			})
-		}
-
-		function intv (_a,_b) {
-			var c = _a.filter(function () {
-				return $(this).hasClass('active');
-			});
-			if (_a.index(c) < _a.length - 1) {
-				c.removeClass('active').next().addClass('active');
-			} else {
-				c.removeClass('active');
-				_a.eq(0).addClass('active');
-			}
-			switchPic(_a,_b);
-		}
-
-		$(function () {
-			var b = $('._banner'),
-				b_l = b.find('.box'),
-				b_l_i = b_l.find('a'),
-				b_r = b.find('.list'),
-				b_r_i = b_r.find('span'),
-				blank = 2500;//- 时间间隔
-
-			var t = setInterval(function () {intv(b_r_i,b_l_i)},blank);
-
-			b_r_i.each(function () {
-				var _this = $(this);
-				_this.on('click',function (t) {
-					clearInterval(t);
-					_this.addClass(_this.hasClass('active') ? '' : 'active');
-					_this.siblings().removeClass('active');
-					switchPic(b_r_i,b_l_i);
-				});
-				var t = setInterval(function () {intv(b_r_i,b_l_i)},blank);
-			})
-		});
+	+func-banner
+	+func-scroll
 
 
