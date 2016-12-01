@@ -18,4 +18,4 @@ Japanese electricity supplier website page build
 * 以"_"开头命名的文件如"_header.jade"为组件dom结构，以mixin形式声明。
 
 ###页面预览路径
-> var/build/html/index.html 首页
+![网站目录](https://miller547719886.github.io/kopi6.com/)

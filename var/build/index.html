@@ -75,16 +75,69 @@
 					</div>
 					<div class="_ems border">
 						<div class="title"><img src="../img/index_49.png" alt=""></div>
-						<div class="demo">
-							<ul class="demo1">
-								<li><a href="">•斎藤 様 番号:EA069050749CN</a></li>
-								<li><a href="">•斎藤 様 番号:EA069050749CN</a></li>
-								<li><a href="">•斎藤 様 番号:EA069050749CN</a></li>
-								<li><a href="">•斎藤 様 番号:EA069050749CN</a></li>
-								<li><a href="">•斎藤 様 番号:EA069050749CN</a></li>
-								<li><a href="">•斎藤 様 番号:EA069050749CN</a></li>
+						<div data-height="198" class="demo js-scroll">
+							<ul class="demo1 js-scroll1">
+								<li class="item"><a href="">•斎藤 様 番号:EA069050749CN</a></li>
+								<li class="item"><a href="">•斎藤 様 番号:EA069050749CN</a></li>
+								<li class="item"><a href="">•斎藤 様 番号:EA069050749CN</a></li>
+								<li class="item"><a href="">•斎藤 様 番号:EA069050749CN</a></li>
+								<li class="item"><a href="">•斎藤 様 番号:EA069050749CN</a></li>
+								<li class="item"><a href="">•斎藤 様 番号:EA069050749CN</a></li>
 							</ul>
-							<ul class="demo2"></ul>
+							<ul class="demo2 js-scroll2"></ul>
+						</div>
+					</div>
+					<div class="_pro-new border">
+						<div class="title"><img src="../img/index_64.png" alt=""></div>
+						<div data-height="485" class="demo js-scroll">
+							<ul class="demo1 js-scroll1">
+												<li class="item">
+													<div class="new-ibox">
+														<div class="new-img"><a href=""><img src="../img/201612111295520101.jpg" alt=""></a></div>
+													</div>
+													<ul>
+														<li><a href="">モンクレール☆MONCLER ダウンジャケット レディース moncler-290</a></li>
+														<li>N品：27800円</li>
+													</ul>
+												</li>
+												<li class="item">
+													<div class="new-ibox">
+														<div class="new-img"><a href=""><img src="../img/201612111295520101.jpg" alt=""></a></div>
+													</div>
+													<ul>
+														<li><a href="">モンクレール☆MONCLER ダウンジャケット レディース moncler-290</a></li>
+														<li>N品：27800円</li>
+													</ul>
+												</li>
+												<li class="item">
+													<div class="new-ibox">
+														<div class="new-img"><a href=""><img src="../img/201612111295520101.jpg" alt=""></a></div>
+													</div>
+													<ul>
+														<li><a href="">モンクレール☆MONCLER ダウンジャケット レディース moncler-290</a></li>
+														<li>N品：27800円</li>
+													</ul>
+												</li>
+												<li class="item">
+													<div class="new-ibox">
+														<div class="new-img"><a href=""><img src="../img/201612111295520101.jpg" alt=""></a></div>
+													</div>
+													<ul>
+														<li><a href="">モンクレール☆MONCLER ダウンジャケット レディース moncler-290</a></li>
+														<li>N品：27800円</li>
+													</ul>
+												</li>
+												<li class="item">
+													<div class="new-ibox">
+														<div class="new-img"><a href=""><img src="../img/201612111295520101.jpg" alt=""></a></div>
+													</div>
+													<ul>
+														<li><a href="">モンクレール☆MONCLER ダウンジャケット レディース moncler-290</a></li>
+														<li>N品：27800円</li>
+													</ul>
+												</li>
+							</ul>
+							<ul class="demo2 js-scroll2"></ul>
 						</div>
 					</div>
 			</div>
@@ -162,29 +215,33 @@
 			}
 			
 			$(function() {
-				var $d = $('.demo'),
-					$d_f = $d.find('.demo1'),
-					$d_s = $d.find('.demo2'),
-					$d_f_i = $d_f.find('li'),
-					d_h = $d.height();
-				$d.css({
-					"height":d_h < 160 ? 160 : d_h,
-					"overflow":"hidden"
-				});
-				$d_f_i.clone().appendTo($d_s);
-				var t = setInterval(function() {
-					scroll($d,$d_f);
-				},50);
-				$d.on({
-					mouseover:function() {
-						clearInterval(t);
-					},
-					mouseout:function() {
-						t = setInterval(function() {
-							scroll($d,$d_f);
-						},50);
-					}
-				});
+				var $d = $('.js-scroll');
+				$d.each(function(index,element) {
+					var _this = $(this),
+						$d_f = _this.find('.js-scroll1'),
+						$d_s = _this.find('.js-scroll2'),
+						$d_f_i = $d_f.find('li.item'),
+						d_h = _this.height();
+			
+					_this.css({
+						"height":d_h,
+						"overflow":"hidden"
+					});
+					$d_f_i.clone().appendTo($d_s);
+					var t = setInterval(function() {
+						scroll(_this,$d_f);
+					},50);
+					_this.on({
+						mouseover:function() {
+							clearInterval(t);
+						},
+						mouseout:function() {
+							t = setInterval(function() {
+								scroll(_this,$d_f);
+							},50);
+						}
+					});
+				})
 			});
 		</script>
 </html>

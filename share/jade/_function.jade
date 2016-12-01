@@ -47,7 +47,7 @@ mixin func-banner
 				var t = setInterval(function() {intv($b_r_i,$b_l_i)},blank);
 			})
 		});
-//- 无缝滚动 |结构要求：.demo>(demo1>ul>li>a+demo1>ul>li>a)
+//- 无缝滚动 |结构要求：.js-scroll>(js-scroll1>ul>li.item>a+js-scroll2)
 mixin func-scroll
 	script.
 		function scroll(_a,_b) {
@@ -61,27 +61,31 @@ mixin func-scroll
 		}
 	
 		$(function() {
-			var $d = $('.demo'),
-				$d_f = $d.find('.demo1'),
-				$d_s = $d.find('.demo2'),
-				$d_f_i = $d_f.find('li'),
-				d_h = $d.height();
-			$d.css({
-				"height":d_h < 160 ? 160 : d_h,
-				"overflow":"hidden"
-			});
-			$d_f_i.clone().appendTo($d_s);
-			var t = setInterval(function() {
-				scroll($d,$d_f);
-			},50);
-			$d.on({
-				mouseover:function() {
-					clearInterval(t);
-				},
-				mouseout:function() {
-					t = setInterval(function() {
-						scroll($d,$d_f);
-					},50);
-				}
-			});
+			var $d = $('.js-scroll');
+			$d.each(function(index,element) {
+				var _this = $(this),
+					$d_f = _this.find('.js-scroll1'),
+					$d_s = _this.find('.js-scroll2'),
+					$d_f_i = $d_f.find('li.item'),
+					d_h = _this.height();
+
+				_this.css({
+					"height":d_h,
+					"overflow":"hidden"
+				});
+				$d_f_i.clone().appendTo($d_s);
+				var t = setInterval(function() {
+					scroll(_this,$d_f);
+				},50);
+				_this.on({
+					mouseover:function() {
+						clearInterval(t);
+					},
+					mouseout:function() {
+						t = setInterval(function() {
+							scroll(_this,$d_f);
+						},50);
+					}
+				});
+			})
 		});

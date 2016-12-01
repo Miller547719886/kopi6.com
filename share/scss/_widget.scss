@@ -1,5 +1,5 @@
 //- 组件类-板块样式
-//- 侧边滚动栏
+//- ems
 ._ems {
 	.title {
 		height: 46px;
@@ -16,4 +16,47 @@
 		    border-bottom: 1px dashed #999;
 		}
 	}
+}
+//- 最新制品
+._pro-new {
+	margin-top: 15px;
+    padding-bottom: 5px;
+
+    .title {
+	    height: 50px;
+    	border-bottom: 1px solid #b5b5b5;
+    }
+
+    ul {
+    	li.item {
+    		border-bottom: 1px dashed #ccc;
+		    position: relative;
+		    padding: 3px;
+
+		    .new-img {
+	    	    display: table-cell;
+    			vertical-align: middle;
+
+    			img {
+				    vertical-align: middle;
+				    margin: 0 auto;
+				    width: 88px;
+				    height: 88px;
+    			}
+		    }
+
+		    ul {
+		    	position: absolute;
+			    right: 0;
+			    width: 100px;
+    			top: 0;
+
+    			li {
+    				color: #A71C24;
+				    height: 60px;
+				    overflow: hidden;
+    			}
+		    }
+    	}
+    }
 }

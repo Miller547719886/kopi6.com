@@ -1,21 +1,44 @@
 //- mixin-板块
-//- 侧边滚动栏
+//- ems
 mixin _ems
 	._ems.border
 		.title
 			img(src="../img/index_49.png", alt="")
-		.demo
-			ul.demo1
-				li
+		.demo.js-scroll(data-height="198")
+			ul.demo1.js-scroll1
+				li.item
 					a(href="") •斎藤 様 番号:EA069050749CN
-				li
+				li.item
 					a(href="") •斎藤 様 番号:EA069050749CN
-				li
+				li.item
 					a(href="") •斎藤 様 番号:EA069050749CN
-				li
+				li.item
 					a(href="") •斎藤 様 番号:EA069050749CN
-				li
+				li.item
 					a(href="") •斎藤 様 番号:EA069050749CN
-				li
+				li.item
 					a(href="") •斎藤 様 番号:EA069050749CN
-			ul.demo2
+			ul.demo2.js-scroll2
+//- 最新制品
+mixin _pro-new
+	._pro-new.border
+		.title
+			img(src="../img/index_64.png", alt="")
+		.demo.js-scroll(data-height="485")
+			ul.demo1.js-scroll1
+				mixin item
+					li.item
+						.new-ibox
+							.new-img
+								a(href="")
+									img(src="../img/201612111295520101.jpg", alt="")
+						ul
+							li
+								a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-290
+							li N品：27800円
+				+item
+				+item
+				+item
+				+item
+				+item
+			ul.demo2.js-scroll2
