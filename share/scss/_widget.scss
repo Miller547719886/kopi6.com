@@ -6,8 +6,12 @@
     	border-bottom: 1px solid #b5b5b5;
 	}
 
+	.demo {
+		padding: 0 5px;	
+	}
+
 	ul {
-		padding: 3px;
+		// padding: 3px;
 
 		li {
 		    height: 24px;
@@ -25,6 +29,10 @@
     .title {
 	    height: 50px;
     	border-bottom: 1px solid #b5b5b5;
+    }
+
+    .demo {
+    	padding: 0 5px;
     }
 
     ul {
@@ -59,4 +67,221 @@
 		    }
     	}
     }
+}
+//-	 右侧版块（新闻pro-new-txt，最热商品pro-sell，人气产品pro-hot，产品标签页tab-pro-box）
+.product {
+	overflow: hidden;
+
+	//- 列表单项通用样式
+	.item {
+	    width: 143px;
+	    float: left;
+	    margin: 20px 0 20px 11px;
+		
+		p.t {
+			height: 38px;
+		    overflow: hidden;
+		    padding: 5px 0;
+		    
+		    a {
+		    	color: #777;
+		    }
+		}
+
+		p.p {
+			font-size: 14px;
+		    color: #A71C24;
+		    font-weight: bold;
+		    text-align: center;
+		    line-height: 25px;
+		    padding-bottom: 5px;
+		}
+
+		a.btn {
+			display: block;
+		    width: 110px;
+		    height: 29px;
+		    border-radius: 4px;
+		    background: #A71C24;
+		    text-align: center;
+		    line-height: 29px;
+		    font-size: 14px;
+		    color: #fff;
+		    margin: 0 auto;
+		}
+	}
+	//- 标题通用样式
+	.title {
+	    height: 34px;
+	    border: 1px solid #b5b5b5;
+	    background: #393939;
+	    line-height: 34px;
+	    padding-left: 35px;
+	    position: relative;
+
+	    i {
+	    	display: block;
+		    width: 17px;
+		    height: 16px;
+		    border-radius: 3px;
+		    left: 10px;
+		    // background: url('/images/index_31.png');
+		    position: absolute;
+		    top: 8px;
+	    }
+
+	    span {
+    	    font-size: 14px;
+		    font-weight: bold;
+		    color: #fff;
+	    }
+	}
+	// 新闻
+	._pro-new-txt {
+	    margin-top: 5px;
+    	padding: 10px;
+
+    	ul {
+    		li {
+			    float: left;
+			    display: inline-block;
+			    width: 378px;
+			    height: 22px;
+			    line-height: 22px;
+			    overflow: hidden;
+
+			    i {
+		    	    display: inline-block;
+				    width: 12px;
+				    height: 12px;
+				    background: #ff6609;
+				    margin-right: 8px;
+			    }
+    		}
+    	}
+	}
+	// 热卖商品
+	.scroll-pro {
+		// background: url('/images/index_46.png') no-repeat;
+	    height: 285px;
+	    width: 778px;
+    	overflow: hidden;
+	}
+	._pro-sell{
+	    width: 778px;
+	    height: 279px;
+	    
+	    .scroll-auto {
+	    	width: 10000px;
+	    }
+
+	    .scroll1,.scroll2 {
+	    	float: left;
+	    	display: inline-block;
+			
+			.item {
+				background: #f4f3f3;
+			    padding-top: 20px;
+			    position: relative;
+
+			    span {
+				    display: inline-block;
+				    width: 30px;
+				    height: 30px;
+				    line-height: 30px;
+				    border-radius: 15px;
+				    background: #A71C24;
+				    color: #fff;
+				    font-size: 18px;
+				    font-weight: bold;
+				    text-align: center;
+				    position: absolute;
+				}
+
+				.ibox {
+					border: 0;
+				}
+
+				p.t {
+			    	height: 38px;
+				    overflow: hidden;
+				    padding: 5px 0;
+
+				    a {
+			    		color: #000;
+				    }
+				}
+
+				p.p {
+			    	font-size: 14px;
+				    color: #A71C24;
+				    font-weight: bold;
+				    text-align: center;
+				    line-height: 25px;
+				    padding-bottom: 5px;
+				    color: #A71C24;
+				}
+			}
+	    }
+	}
+	//- 人气商品
+	._pro-hot {
+
+	}
+	//- 最新商品
+	._pro-new-pic {
+		.pro-tab {
+		    border-top: 10px solid #232323;
+		    position: relative;
+		    height: 28px;
+
+		    span {
+		    	display: inline-block;
+			    width: 167px;
+			    height: 30px;
+			    line-height: 30px;
+			    text-align: center;
+			    color: #fff;
+			    position: absolute;
+			    top: -10px;
+			    cursor: pointer;
+		    }
+
+		    span.t-1 {
+			    left: 0px;
+    			z-index: 5;
+		    }
+
+		    span.t-2 {
+			    left: 150px;
+    			z-index: 4;
+		    }
+
+		    span.t-3 {
+			    left: 300px;
+    			z-index: 3;
+		    }
+
+		    span.t-4 {
+			    left: 450px;
+    			z-index: 2;
+		    }
+		}
+		
+		.tab-pro-box {
+			width: 3890px;
+			transition: all .8s ease-in 0s;
+
+			.box {
+			    float: left;
+    			width: 778px;
+
+    			.item {
+    				width: 143px;
+				    float: left;
+				    margin: 20px 0 20px 11px;
+    			}
+			}
+		}
+	}
 }

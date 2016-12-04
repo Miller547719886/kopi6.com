@@ -47,10 +47,10 @@ mixin func-banner
 				var t = setInterval(function() {intv($b_r_i,$b_l_i)},blank);
 			})
 		});
-//- 无缝滚动 |结构要求：.js-scroll>(js-scroll1>ul>li.item>a+js-scroll2)
-mixin func-scroll
+//- 无缝滚动-纵向 |结构要求：.js-scroll>(js-scroll1>ul>li.item>a+js-scroll2)
+mixin func-scroll-v
 	script.
-		function scroll(_a,_b) {
+		function scroll_v(_a,_b) {
 			var a = _a.get(0),
 				b = _b.get(0);
 			a.scrollTop++;
@@ -61,21 +61,21 @@ mixin func-scroll
 		}
 	
 		$(function() {
-			var $d = $('.js-scroll');
+			var $d = $('.js-scroll-v');
 			$d.each(function(index,element) {
 				var _this = $(this),
 					$d_f = _this.find('.js-scroll1'),
 					$d_s = _this.find('.js-scroll2'),
-					$d_f_i = $d_f.find('li.item'),
+					$d_f_i = $d_f.find('.item'),
 					d_h = _this.height();
 
 				_this.css({
 					"height":d_h,
 					"overflow":"hidden"
-				});
+				});	
 				$d_f_i.clone().appendTo($d_s);
 				var t = setInterval(function() {
-					scroll(_this,$d_f);
+					scroll_v(_this,$d_f);
 				},50);
 				_this.on({
 					mouseover:function() {
@@ -83,9 +83,66 @@ mixin func-scroll
 					},
 					mouseout:function() {
 						t = setInterval(function() {
-							scroll(_this,$d_f);
+							scroll_v(_this,$d_f);
 						},50);
 					}
 				});
 			})
 		});
+//- 无缝滚动-横向
+mixin func-scroll-h
+	script.
+		function scroll_h(_a,_b) {
+			var a = _a.get(0),
+				b = _b.get(0);
+			a.scrollLeft++;	
+			var r_w = b.offsetWidth - parseInt(_b.css('paddingLeft')) * 2;
+			if (a.scrollLeft >= r_w) {
+				a.scrollLeft = 0;   
+			}
+		}
+
+		$(function() {
+			var $d = $('.js-scroll-h');
+			$d.each(function(index,element) {
+				var _this = $(this),
+					$d_b = _this.find('.scroll-auto'),
+					$d_f = _this.find('.scroll1'),
+					$d_s = _this.find('.scroll2'),
+					$d_f_i = $d_f.find('.item'),
+					d_w = _this.width();
+
+				$d_f_i.clone().appendTo($d_s);
+				var t = setInterval(function() {
+					scroll_h(_this,$d_b);
+				},50);
+				_this.on({
+					mouseover:function() {
+						clearInterval(t);
+					},
+					mouseout:function() {
+						t = setInterval(function() {
+							scroll_h(_this,$d_b);
+						},50);
+					}
+				});
+			});
+		});
+//- tab页
+mixin func-tab
+	script.
+		$(function() {
+			var $t = $('.pro-tab'),
+				$t_i = $t.find('span'),
+				$c = $('.tab-pro-box'),
+				$c_i = $c.find('.box');
+			$t_i.each(function(index,element) {
+				var _this = $(this);
+				_this.on('mouseover',function(e) {
+					$c.css({
+						marginLeft: -778 * ($t_i.index(_this)) + 'px'
+					});
+					_this.addClass('icon-tab_06').siblings().removeClass('icon-tab_06');
+				})
+			})
+		})

@@ -49,6 +49,28 @@ a:hover {
 a {
     text-decoration: none;
     color: #000;
+    cursor: pointer;
+}
+
+.ibox {
+    width: 141px;
+    height: 141px;
+    border: #ccc 1px solid;
+    overflow: hidden;
+    text-align: center;
+    display: table;
+
+    .img {
+	    display: table-cell;
+    	vertical-align: middle;
+
+    	img {
+    		vertical-align: middle;
+		    margin: 0 auto;
+		    width: 141px;
+    		height: 141px;
+    	}
+    }
 }
 
 

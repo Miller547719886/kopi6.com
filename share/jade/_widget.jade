@@ -4,7 +4,7 @@ mixin _ems
 	._ems.border
 		.title
 			img(src="../img/index_49.png", alt="")
-		.demo.js-scroll(data-height="198")
+		.demo.js-scroll-v(data-height="198")
 			ul.demo1.js-scroll1
 				li.item
 					a(href="") •斎藤 様 番号:EA069050749CN
@@ -24,7 +24,7 @@ mixin _pro-new
 	._pro-new.border
 		.title
 			img(src="../img/index_64.png", alt="")
-		.demo.js-scroll(data-height="485")
+		.demo.js-scroll-v(data-height="485")
 			ul.demo1.js-scroll1
 				mixin item
 					li.item
@@ -42,3 +42,132 @@ mixin _pro-new
 				+item
 				+item
 			ul.demo2.js-scroll2
+//- 产品新闻
+mixin _pro-new-txt
+	.product
+		.title
+			i.icon-index_31
+			span 一番新しいアップロード
+		.box.border._pro-new-txt.fn-clear
+			ul
+				li
+					i
+					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				li
+					i
+					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				li
+					i
+					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				li
+					i
+					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				li
+					i
+					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				li
+					i
+					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				li
+					i
+					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				li
+					i
+					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+//- 热卖商品
+mixin _pro-sell
+	.product.top.scroll-pro.icon-index_46
+		.title
+			i.icon-index_31
+			span 売り上げランキング
+		._pro-sell.fn-clear.js-scroll-h
+			.scroll-auto.fn-clear
+				.scroll1.fn-clear
+					mixin item
+						.item
+							span 1
+							.ibox
+								.img
+									a(href="")
+										img(src="../img/201642011149160101.jpg", alt="")
+							p.t
+								a(href="") カルティエ ミニサントス コピー ドゥモワゼル W25077X9
+							p.p N品：19000円 
+					+item 
+					+item 
+					+item  
+					+item 
+					+item 
+					+item 
+					+item 
+				.scroll2.fn-clear
+//- 人气商品
+mixin _pro-hot
+	.product.top
+		.title
+			i.icon-index_31
+			span 人気商品
+		._pro-hot.fn-clear
+			mixin item
+				.item
+					.ibox
+						.img
+							a(href="")
+								img(src="../img/201651413453270101.jpg", alt="")
+					p.t
+						a(href="") ブレゲ マリーン レプリカ ラージデイト 5817ST/12/5V8
+					p.p N品：23500円   
+					a.btn 購入商品
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+//- 最新商品
+mixin _pro-new-pic
+	.product.top
+		.title
+			i
+			span 一番新しいアップロード
+		._pro-new-pic
+			.pro-tab.top.fn-clear
+				span.t-1.icon-tab_03.icon-tab_06 スーパーコピー時計
+				span.t-2.icon-tab_03 スーパーコピーバッグ
+				span.t-3.icon-tab_03 スーパーコピー財布
+				span.t-4.icon-tab_03 その他商品
+			.tab-pro-box.fn-clear
+				mixin box
+					.box.fn-clear
+						mixin item
+							.item
+								.ibox
+									.img
+										a(href="")
+											img(src="../img/201651413453270101.jpg", alt="")
+								p.t
+									a(href="") ブレゲ マリーン レプリカ ラージデイト 5817ST/12/5V8
+								p.p N品：23500円   
+								a.btn 購入商品
+						+item
+						+item
+						+item
+						+item
+						+item
+						+item
+						+item
+						+item
+						+item
+						+item
+				+box
+				+box
+				+box
+				+box
+
+
+			
+
