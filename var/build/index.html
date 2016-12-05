@@ -200,7 +200,7 @@
 						</div>
 					</div>
 					<div class="product top">
-						<div class="title"><i></i><span>一番新しいアップロード</span></div>
+						<div class="title"><i class="icon-index_31"></i><span>一番新しいアップロード</span></div>
 						<div class="_pro-new-pic">
 							<div class="pro-tab top fn-clear"><span class="t-1 icon-tab_03 icon-tab_06">スーパーコピー時計</span><span class="t-2 icon-tab_03">スーパーコピーバッグ</span><span class="t-3 icon-tab_03">スーパーコピー財布</span><span class="t-4 icon-tab_03">その他商品</span></div>
 							<div class="tab-pro-box fn-clear">
@@ -493,6 +493,34 @@
 																		</div>
 												</div>
 							</div>
+						</div>
+					</div>
+					<div class="product fn-clear">
+						<div class="title"><i class="icon-index_31"></i><span>ご利用案内</span></div>
+						<div class="_handbook">
+							<div class="alone-left"><img src="../img/alone_04.png" alt="">
+								<div class="cont"><span class="red">※ご注文</span>
+									<p>営業時間9:00～24:00 ご注文受付、24時間受け付けております。 メールご注文は9:00～24:00の受け付けとなっております。</p><span class="green">※お問い合わせ</span>
+									<p>ホームページ.メールのお問い合わせは、24時間受け付けております。 サーバメンテナンス等でお休みを頂く場合や、年末年始等の長期休暇の際にはサイト上にてご案内させて頂きます。</p><span class="green">返品について</span>
+									<p>お客様の都合による商品の返品/交換、キャンセル等は承っておりません。お届けした商品に破損や品違いがございましたら、商品到着後3日以内にご連絡ください。</p><span class="green">受注発注について</span>
+									<p>「受注発注」表記の仕様は、ご決済完了後にお取り寄せする商品です。在庫状況により5日から最大2週間程度お時間を頂く場合がございます。予め納期をご確認の上、ご購入いただきますようお願いいたします。</p>
+								</div>
+							</div>
+							<div class="alone-right"><img src="../img/alone_05.png" alt="">
+								<div class="cont">
+									<p>ご注文いただいた商品は、ご決済完了後に発送手配を開始いたします。在庫のある商品は約1-2週間でのお届けとなります。配送状況、配送エリアによってさらにお時間がかかる場合があります。</p><span class="red">お支払い方法について</span>
+									<p>1 銀行振り込み ご注文完了後に弊社より在庫の有無をメールにてお知らせいたします。メールをお受け取り頂いた後に、指定の口座に代金を振り込んでいただきます。弊社でご入金を確認後、発送手配をいたします。 </p>
+									<p>2 送料は日本全国一律送料无料です。</p>
+									<p>3 振込手数料振込手数料は、お振込み時にご確認下さい。振込手数料はお客様のご負担となりますのでご了承下さい。 </p>
+									<p>4 商品発送手配完了後、E-mailにて配送日のご連絡をさせていただきます。</p>
+									<p>※ ご注文が集中した場合や、土日祝日・弊社休業日による連休がある場合、弊社倉庫における棚卸し時期及びその前後の時期には、納品までに通常より長い時間がかかることがあります。予めご了承ください。</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="_brand top fn-clear">
+						<div class="title"><span>ブランド專區 </span><a href="">もっと見る>></a></div>
+						<div class="box"> <a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a><a href=""><img src="../img/20163102123892.jpg" alt=""></a>
 						</div>
 					</div>
 			</div>
@@ -838,12 +866,13 @@
 		</script>
 		<script>
 			function scroll_h(_a,_b) {
-				var a = _a.get(0),
-					b = _b.get(0);
-				a.scrollLeft++;	
+				var b = _b.get(0),
+					l = parseInt(_a.css('marginLeft'));
 				var r_w = b.offsetWidth - parseInt(_b.css('paddingLeft')) * 2;
-				if (a.scrollLeft >= r_w) {
-					a.scrollLeft = 0;   
+				console.log(Math.abs(l),r_w);
+				_a.css('marginLeft',l-1);
+				if (Math.abs(l) >= r_w) {
+					_a.css('marginLeft',0);
 				}
 			}
 			
@@ -859,7 +888,7 @@
 			
 					$d_f_i.clone().appendTo($d_s);
 					var t = setInterval(function() {
-						scroll_h(_this,$d_b);
+						scroll_h($d_b,$d_f);
 					},50);
 					_this.on({
 						mouseover:function() {
@@ -867,7 +896,7 @@
 						},
 						mouseout:function() {
 							t = setInterval(function() {
-								scroll_h(_this,$d_b);
+								scroll_h($d_b,$d_f);
 							},50);
 						}
 					});

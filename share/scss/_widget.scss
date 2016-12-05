@@ -68,7 +68,7 @@
     	}
     }
 }
-//-	 右侧版块（新闻pro-new-txt，最热商品pro-sell，人气产品pro-hot，产品标签页tab-pro-box）
+//-	 右侧版块（新闻pro-new-txt，最热商品pro-sell，人气产品pro-hot，产品标签页tab-pro-box,使用指南_handbook）
 .product {
 	overflow: hidden;
 
@@ -284,4 +284,80 @@
 			}
 		}
 	}
+	//- 使用指南
+	._handbook {
+		.alone-left,.alone-right {
+		    width: 378px;
+		    font-size: 13px;
+		    line-height: 20px;
+		    font-family: '宋体';
+
+			&.alone-left {
+		    	float: left;
+		    }
+
+		    &.alone-right {
+		    	float: right;
+		    }
+
+		    span.red {
+	    	    font-size: 14px;
+			    font-family: '宋体';
+			    color: #ff146c;
+			    line-height: 20px;
+		    }
+
+		    span.green {
+	    	    font-size: 14px;
+			    font-family: '宋体';
+			    color: #99bb00;
+			    line-height: 20px;
+		    }
+
+		    p {
+	    	    font-size: 13px;
+			    font-family: '宋体';
+			    line-height: 20px;
+		    }
+		}
+	}
+}
+//- 品牌专区
+._brand {
+    border: 1px solid #b5b5b5;
+    background: #fff;
+
+    .title {
+    	height: 34px;
+	    border-bottom: 1px solid #b5b5b5;
+	    background: #393939;
+	    line-height: 34px;
+	    padding-left: 35px;
+	    position: relative;
+
+	    span {
+	    	font-size: 14px;
+		    font-weight: bold;
+		    color: #fff;
+		    margin-right: 15px;
+	    }
+
+	    a {
+	    	 float: right;
+    		padding-right: 20px;
+	    }
+    }
+
+    .box {
+    	a {
+		    display: block;
+		    float: left;
+		    width: 194px;
+		    height: 98px;
+
+		    img {
+		    	width: 187px;
+		    }
+    	}
+    }
 }

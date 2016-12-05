@@ -93,12 +93,13 @@ mixin func-scroll-v
 mixin func-scroll-h
 	script.
 		function scroll_h(_a,_b) {
-			var a = _a.get(0),
-				b = _b.get(0);
-			a.scrollLeft++;	
+			var b = _b.get(0),
+				l = parseInt(_a.css('marginLeft'));
 			var r_w = b.offsetWidth - parseInt(_b.css('paddingLeft')) * 2;
-			if (a.scrollLeft >= r_w) {
-				a.scrollLeft = 0;   
+			console.log(Math.abs(l),r_w);
+			_a.css('marginLeft',l-1);
+			if (Math.abs(l) >= r_w) {
+				_a.css('marginLeft',0);
 			}
 		}
 
@@ -114,7 +115,7 @@ mixin func-scroll-h
 
 				$d_f_i.clone().appendTo($d_s);
 				var t = setInterval(function() {
-					scroll_h(_this,$d_b);
+					scroll_h($d_b,$d_f);
 				},50);
 				_this.on({
 					mouseover:function() {
@@ -122,7 +123,7 @@ mixin func-scroll-h
 					},
 					mouseout:function() {
 						t = setInterval(function() {
-							scroll_h(_this,$d_b);
+							scroll_h($d_b,$d_f);
 						},50);
 					}
 				});
