@@ -343,7 +343,7 @@
 	    }
 
 	    a {
-	    	 float: right;
+	    	float: right;
     		padding-right: 20px;
 	    }
     }
@@ -361,3 +361,26 @@
     	}
     }
 }
+//- 购物车组件
+._shopTrolley {
+	.end {
+		width: 1000px;
+	    margin-top: 30px;
+	    margin-bottom: 30px;
+	    color: #282828;
+	    font-size: 12px;
+    	margin-left: 3px;
+
+    	li {
+		    width: 1000px;
+		    min-height: 25px;
+		    height: auto !important;
+		    height: 25px;
+
+		    .update {
+		    	color: #ff0000;
+		    }
+    	}
+	}
+}
+

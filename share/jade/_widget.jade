@@ -195,6 +195,7 @@ mixin _handbook
 					p 3 振込手数料振込手数料は、お振込み時にご確認下さい。振込手数料はお客様のご負担となりますのでご了承下さい。 
 					p 4 商品発送手配完了後、E-mailにて配送日のご連絡をさせていただきます。
 					p ※ ご注文が集中した場合や、土日祝日・弊社休業日による連休がある場合、弊社倉庫における棚卸し時期及びその前後の時期には、納品までに通常より長い時間がかかることがあります。予めご了承ください。
+//- 品牌专区
 mixin _brand
 	._brand.top.fn-clear
 		.title
@@ -220,6 +221,71 @@ mixin _brand
 			+item
 			+item
 			+item
+//- 购物车组件
+mixin _shopTrolley
+	._shopTrolley
+		table
+			tbody
+				tr
+					td.td_btm.td_btm_r 商品
+					td.td_btm.td_btm_r 価格
+					td.td_btm.td_btm_r 数量
+					td.td_btm.td_btm_r 小計
+					td.td_btm.td_btm_r 削除
+				mixin item
+					tr
+						td.td_pro.td_btm_r 
+							|`
+							.td_img
+								ul.fn-clear
+									li.img
+										a(href="")
+											img(src="../img/20167111146700101.jpg", alt="")
+									li.txt
+										a(href="") エルメスHERMES スーパーコピー クリッパー
+						td.td_pro.td_btm_r 
+							|価格:23500円
+							br
+							br
+							span.vip(style="display:none") 会員価格:500円
+						td.td_pro.td_btm_r 
+							input(type="text" style="display:none")
+							select
+								option(value="1",selected) 1
+								option(value="2") 2
+								option(value="3") 3
+								option(value="4") 4
+								option(value="5") 5
+								option(value="6") 6
+								option(value="7") 7
+								option(value="8") 8
+								option(value="9") 9
+								option(value="10") 10
+							input(type="text" style="display:none")
+						td.td_pro.td_btm_r 
+							|23500円
+							br
+							br
+							span.vip(style="display:none") 500円
+						td.td_pro.td_btm_r 
+							input(type="button" value="削除")
+				+item
+				+item
+				tr
+					td.sum(colspan=5)
+						span 合計:47000円
+				tr
+					td.sum-vip(colspan=5)
+						span 会員合計:1000円
+		.end
+			ul
+				li
+					|数量・ラッピングを変更したら、更新ボタンをクリックしてください。
+					input(type="button" value="更新")
+					span.update(style="visibility:hidden") 更新中
+				li.ta-r
+					a(href="")
+						img(src="../img/b_03.png", alt="")
 
 
 			
