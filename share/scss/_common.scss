@@ -77,6 +77,37 @@ a {
     }
 }
 
+fieldset {
+    border: 1px solid #ccc;
+    padding: 50px;
+    margin: 100px 150px;
+    border-radius: 5px;
+    background: #efefef;
+
+    legend {
+        font-size: 18px;
+    }
+
+    li {
+        line-height: 40px;
+    }
+
+    input {
+        padding: 4px;
+        font-size: 16px;
+    }
+
+    span {
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+    }
+
+    .ipt {
+        border: 1px solid #ccc;
+    }
+}
+
 
 
 

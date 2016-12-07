@@ -286,7 +286,121 @@ mixin _shopTrolley
 				li.ta-r
 					a(href="")
 						img(src="../img/b_03.png", alt="")
+//- 搜索列表
+mixin _pro-search
+	.product
+		.title
+			i.icon-index_31
+			span 当面の位置：ホーム >> 檢索
+		._pro-search.fn-clear
+			mixin item
+				.item
+					.ibox
+						.img
+							a(href="")
+								img(src="../img/201651413453270101.jpg", alt="")
+					p.t
+						a(href="") ブレゲ マリーン レプリカ ラージデイト 5817ST/12/5V8
+					p.p N品：23500円   
+					a.btn 購入商品
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+//- 注册框
+mixin _signIn
+	._signIn
+		fieldset
+			legend ユーザ登録
+			div
+				ul
+					li
+						span 電子メール：
+						input.ipt(type="text")
+					li
+						span パスワード：
+						input.ipt(type="text")
+					li
+						span 
+						input(type="button" value="登録")
+//- 忘记密码
+mixin _forgetPw
+	._forgetPw
+		fieldset
+			legend ユーザーはパスワードを探し出して
+			div
+				ul
+					li
+						span 電子メール：
+						input.ipt(type="text")
+					li
+						span 
+						input(type="button" value="メールの送信")
+//- 个人中心
+mixin _info
+	._info.fn-clear
+		.menu.fn-left
+			ul
+				li.d.t メニュー
+				li.d.current
+					a ユーザ情報 >>
+				li
+					a ユーザオーダー
+		.content.i-h.fn-left
+			table
+				tbody
+					tr
+						td.td_top お名前
+						td.td_right 
+							input(type="text",title="空ではありません")
+					tr
+						td.td_top フリガナ
+						td.td_right 
+							input(type="text",title="空ではありません")
+					tr
+						td.td_top 郵便番号
+						td.td_right 
+							input(type="text",title="空ではありません")
+					tr
+						td.td_top 都道府県
+						td.td_right 
+							select
+								option(value="0" selected) 都道府県
+								option(value="0") 北海道
+								option(value="0") 青森県
+								option(value="0") 都道府県
+								option(value="0") 都道府県
+								option(value="0") 都道府県
+								option(value="0") 都道府県
+								option(value="0") 都道府県
+								option(value="0") 都道府県
+								option(value="0") 都道府県
+					tr
+						td.td_top 詳しい住所
+						td.td_right 
+							input(type="text",title="空ではありません")
+					tr
+						td.td_top 電話番号
+						td.td_right 
+							input(type="text",title="空ではありません")
+					tr
+						td.td_top メールアドレス
+						td.td_right 
+							input(type="text",title="空ではありません",value="xiongdiao",readonly)
+					tr
+						td.td_top お客様掲示板
+						td.td_right 
+							textarea(name="", cols="20", rows="2")
+			p
+				input(type="submit" value="修正情報")
 
+                                    
 
 			
 

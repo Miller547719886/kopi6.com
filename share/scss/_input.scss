@@ -118,6 +118,12 @@
 	ul.login-2 {
 		display: none;
 
+		em.user {
+			font-size:14px;
+			font-weight:bold;
+			color:#f00;
+		}
+
 		&.active {
 			display: block;
 		}
