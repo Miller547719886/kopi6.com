@@ -68,8 +68,8 @@
     	}
     }
 }
-//-	 右侧版块（新闻pro-new-txt，最热商品pro-sell，人气产品pro-hot，产品标签页tab-pro-box,使用指南_handbook）
-.product {
+//-	 右侧产品版块（新闻pro-new-txt，最热商品pro-sell，人气产品pro-hot，产品标签页tab-pro-box,使用指南_handbook，商品详情pro-detail）
+._widget {
 	overflow: hidden;
 
 	//- 列表单项通用样式
@@ -224,10 +224,6 @@
 			}
 	    }
 	}
-	//- 人气商品
-	._pro-hot {
-
-	}
 	//- 最新商品
 	._pro-new-pic {
 		.pro-tab {
@@ -320,6 +316,98 @@
 			    line-height: 20px;
 		    }
 		}
+	}
+	//- 人气商品
+	._pro-detail {
+		margin-top: 15px;
+
+		.pro-logo {
+		    float: left;
+
+		    .pro-ibox {
+	    	    width: 340px;
+			    height: 340px;
+			    overflow: hidden;
+			    text-align: center;
+			    display: table;
+
+			    .pro-img {
+		    	    display: table-cell;
+    				vertical-align: middle;
+
+    				img {
+    					vertical-align: middle;
+   						margin: 0 auto;
+    				}
+			    }
+		    }
+
+		    p {
+	    	    padding-left: 85px;
+
+	    	    a.prev,a.next {
+    	    	    display: inline-block;
+				    float: left;
+				    width: 50px;
+				    margin-right: 15px;
+	    	    }
+		    }
+
+		    .txt {
+	    	    float: left;
+			    width: 340px;
+			    margin-top: 15px;
+		        font-family: 'Microsoft YaHei';
+  				line-height: 25px;
+		    }
+		}
+
+		.txt {
+	    	float: right;
+		    width: 410px;
+		    padding: 5px;
+		    border:1px solid #ccc;
+
+		    h1 {
+		    	font-size: 14px;
+			    background: #A71C24;
+			    color: #fff;
+			    padding: 5px;
+		    }
+
+		    table {
+	    	    border: 1px solid #fff;
+
+	    	    tr {
+    	    	    border-bottom: 1px solid #ccc;
+
+    	    	    td {
+	    	    	    width: 210px;
+					    line-height: 30px;
+					    padding-left: 10px;
+
+					    img {
+				    	    display: inline-block;
+						    margin-top: 5px;
+						    position: relative;
+						    top: 6px;
+					    }
+    	    	    }
+	    	    }
+		    }
+
+		    .msg {
+	    	    line-height: 25px;
+    			margin: 10px 0;
+
+    			p {
+    				font-size: 16px;
+    			}
+		    }
+
+
+		}
+
 	}
 }
 //- 品牌专区
@@ -433,9 +521,31 @@
     	table {
 		    line-height: 32px;
     	}
-
-
     }
 }
+//- 公用框架
+._box {
+	.tab-title {
+		height: 33px;
+	    background: #fff;
+	    border-top: 6px solid #393939;
 
+    	span {
+		    float: left;
+		    display: block;
+		    width: 167px;
+		    height: 30px;
+		    line-height: 30px;
+		    font-size: 16px;
+		    text-align: center;
+		    color: #fff;
+		}
+	}
+
+	.tab-box {
+		padding: 15px;
+    	border-top: 1px solid #b5b5b5;
+    	min-height: 200px;
+	}
+}
 

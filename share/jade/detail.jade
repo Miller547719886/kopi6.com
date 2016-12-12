@@ -1,0 +1,14 @@
+//- 商品详情
+block variables
+	-var pageTitle = '商品详情';
+	-var pageClass = 'detail';
+
+extends _page.base
+
+block right
+	+_pro-detail
+	+_box('商品詳細')
+	+_box('返品返金')
+	+_box('注意事项')
+	+_pro-relate
+	+_handbook

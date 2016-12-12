@@ -1,4 +1,22 @@
 //- mixin-板块
+//- 公用窗口1
+mixin _widget(n)
+	._widget.fn-clear
+		.title
+			i.icon-index_31
+			span #{n}
+		if block
+			block
+		else
+			p No content provided
+
+//- 公用窗口2
+mixin _box(n)
+	._box.border.fn-clear.top
+		.tab-title
+			span.icon-tab_06 #{n}
+		.tab-box
+
 //- ems
 mixin _ems
 	._ems.border
@@ -44,10 +62,7 @@ mixin _pro-new
 			ul.demo2.js-scroll2
 //- 产品新闻
 mixin _pro-new-txt
-	.product
-		.title
-			i.icon-index_31
-			span 一番新しいアップロード
+	+_widget('一番新しいアップロード')
 		.box.border._pro-new-txt.fn-clear
 			ul
 				li
@@ -76,10 +91,7 @@ mixin _pro-new-txt
 					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
 //- 热卖商品
 mixin _pro-sell
-	.product.top.scroll-pro.icon-index_46
-		.title
-			i.icon-index_31
-			span 売り上げランキング
+	+_widget('売り上げランキング')
 		._pro-sell.fn-clear.js-scroll-h
 			.scroll-auto.fn-clear
 				.scroll1.fn-clear
@@ -103,11 +115,32 @@ mixin _pro-sell
 				.scroll2.fn-clear
 //- 人气商品
 mixin _pro-hot
-	.product.top
-		.title
-			i.icon-index_31
-			span 人気商品
+	+_widget('人気商品')
 		._pro-hot.fn-clear
+			mixin item
+				.item
+					.ibox
+						.img
+							a(href="")
+								img(src="../img/201651413453270101.jpg", alt="")
+					p.t
+						a(href="") ブレゲ マリーン レプリカ ラージデイト 5817ST/12/5V8
+					p.p N品：23500円   
+					a.btn 購入商品
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+			+item
+//- 相关商品
+mixin _pro-relate
+	+_widget('相關產品')
+		._pro-relate.fn-clear
 			mixin item
 				.item
 					.ibox
@@ -130,10 +163,7 @@ mixin _pro-hot
 			+item
 //- 最新商品
 mixin _pro-new-pic
-	.product.top
-		.title
-			i.icon-index_31
-			span 一番新しいアップロード
+	+_widget('一番新しいアップロード')
 		._pro-new-pic
 			.pro-tab.top.fn-clear
 				span.t-1.icon-tab_03.icon-tab_06 スーパーコピー時計
@@ -169,10 +199,7 @@ mixin _pro-new-pic
 				+box
 //- 使用指南
 mixin _handbook
-	.product.fn-clear
-		.title
-			i.icon-index_31
-			span ご利用案内
+	+_widget('ご利用案内')
 		._handbook
 			.alone-left
 				img(src="../img/alone_04.png", alt="")
@@ -288,10 +315,7 @@ mixin _shopTrolley
 						img(src="../img/b_03.png", alt="")
 //- 搜索列表
 mixin _pro-search
-	.product
-		.title
-			i.icon-index_31
-			span 当面の位置：ホーム >> 檢索
+	+_widget('当面の位置：ホーム >> 檢索')
 		._pro-search.fn-clear
 			mixin item
 				.item
@@ -399,6 +423,67 @@ mixin _info
 							textarea(name="", cols="20", rows="2")
 			p
 				input(type="submit" value="修正情報")
+//- 商品详情
+mixin _pro-detail
+	+_widget('当面の位置：ホーム >> スーパーコピー時計 >> カルティエ >> サントス')
+		._pro-detail.fn-clear
+			.pro-logo
+				.pro-ibox
+					.pro-img
+						img(src="../img/20164291701710101.jpg", alt="")
+				p 
+					a.prev(href="")
+						img(src="../img/pro_18.png", alt="")
+					a.next(href="")
+						img(src="../img/pro_15.png", alt="")
+				.txt(style="border:none;")
+					span.pro-info ※ ご注文後、在庫を確認の上、当店よりお支払い総額とお振り替え口座名をメールにてお知らせいたします。万か一メール届かないの場合、当社まで御一報お願いします。
+			.txt.fn-clear
+				h1 カルティエ ミニサントス コピー ドゥモワゼル W25077X9
+				table
+					tbody
+						tr
+							td 商品型番:W25077X9
+							td
+								|商品評価:
+								img(src="../img/pro_11.png", alt="")
+						tr
+							td 在庫状況:
+							td 在庫あり
+						tr
+							td 販売価格: 19000円
+							td
+				.msg
+					p ※ 掲載写真商品の色はお客様のパソコン環境によって実物と若干異なる場合がございますのでご了承下さい。モデルによっては若干のマイナーチェンジなどにより、掲載の画像と若干異なる箇所が見られる場合がございますのでご了承下さい。 商品の仕様は予告なく変更が行われることがございますのでご確認下さい。 掲載商品は当サイト以外でも並行販売しており、ご注文されても在庫確認のタイムラグにより商品をご用意できない場合があります。※最も手頃な価格でお気に入りの商品を購入プロの誠実品質保証.
+				table
+					tbody
+						tr
+							td 
+								|数 量：
+								select
+									option(value="1") 1
+									option(value="2") 2
+									option(value="3") 3
+									option(value="4") 4
+									option(value="5") 5
+									option(value="6") 6
+									option(value="7") 7
+									option(value="8") 8
+									option(value="9") 9
+									option(value="10") 10
+							td 全国一律送料無料
+				table
+					tbody
+						tr
+							td
+								a(href="")
+									img(src="../img/index_3_15.png", alt="")
+							td
+								a(href="")
+									img(src="../img/index_3_17.png", alt="")
+
+
+
 
                                     
 
