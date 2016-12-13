@@ -150,6 +150,10 @@
 			    line-height: 22px;
 			    overflow: hidden;
 
+			    a:hover {
+			    	color: #800000;
+			    }
+
 			    i {
 		    	    display: inline-block;
 				    width: 12px;
@@ -547,5 +551,104 @@
     	border-top: 1px solid #b5b5b5;
     	min-height: 200px;
 	}
+}
+//- FAQ
+._FAQ {
+	width: 730px;
+	margin-top: 30px;
+	font-size: 12px;
+	margin-left: 10px;
+	color: #686868;
+
+	.form {
+	    float: right;
+	    width: 375px;
+	    height: 200px;
+
+	    ul {
+	    	span {
+	    		color: #ff8123;
+	    	}
+
+	    	input[type="text"] {
+			    border: 1px solid #ccc;
+			    width: 200px;
+			    height: 20px;
+	    	}
+
+	    	li {
+			    width: 370px;
+    			margin-bottom: 5px;
+   	 		}
+
+   	 		.area {
+			    width: 320px;
+	  	  		height: 55px;
+			    margin-left: 39px;
+			    border: 1px solid #cccccc;
+   	 		}
+
+   	 		.mun {
+ 			    float: left;
+				width: 350px;
+
+				li {
+				    float: left;
+    				width: 60px;
+
+    				input {
+					    width: 50px;
+					    border: 1px solid #ccc;
+					    height: 20px;
+    				}
+				}
+   	 		}
+	    }
+	}
+}
+//- 品牌信息
+._brand {
+	.img {
+		img {
+			display:block;
+			max-width:275px;
+		}
+	}
+
+	.txt {
+		width: 460px;
+	}
+}
+//- 产品分类
+._pro-type {
+	border: 1px solid #b5b5b5;
+    background: #fff;
+    margin-top: 15px;
+    padding: 15px;
+
+    p {
+		color: #000;
+		font-size: 14px;
+		font-weight: bold;
+		padding-bottom: 15px;
+    }
+
+    ul {
+    	li {
+		    display: inline-block;
+		    height: 26px;
+		    width: 163px;
+		    background: #393939;
+		    text-align: center;
+		    margin-right: 20px;
+		    margin-bottom: 9px;
+		    overflow: hidden;
+
+		    a {
+	    	    color: #fff;
+    			line-height: 26px;
+		    }
+    	}
+    }
 }
 

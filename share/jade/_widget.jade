@@ -481,6 +481,55 @@ mixin _pro-detail
 							td
 								a(href="")
 									img(src="../img/index_3_17.png", alt="")
+//- FAQ
+mixin _FAQ
+	+_widget('当面の位置：ホーム >> FAQ')
+		._FAQ.fn-clear
+			.form.fn-clear
+				ul
+					li
+						span ご質問がある場合はこちらでお問い合わせする事も可能です。
+					li 
+						|email:
+						input(type="text",name="mail",id="mail",title="メールボックスを入力してください")
+						span.red *
+					li
+						|名&nbsp;&nbsp;前:
+						input(type="text",name="name",id="name")
+						span.red *
+					li
+						textarea.area(name="contents", cols="20", rows="2",id="contents")
+						span.red *
+					li
+						.mun
+							ul
+								li 数字认证：
+								li 
+									input(type="text",name="validate",id="validate")
+								li
+									img(src="../img/validate.png", alt="")
+					li.submit
+						input(type="image",name="image",id="image",src="../img/kf_06.png")
+			.img
+				img(src="../img/hf_03.png", alt="")
+//- 品牌介绍
+mixin _brand
+	+_widget('当面の位置：ホーム >> スーパーコピー時計 >> IWC >> ポルトギーゼ')
+		._brand.fn-clear
+			.img.fn-left
+				img(src="", alt="")
+			.txt.fn-right
+				p.ti-2 1868年｡フロレンタイン・アリオスト・ジョーンズ（Florentine Ariosto Jones ）がヨハン・ハインリッヒ・モーザー（Johann Heinrich Moser ）と協力し、スイスのシャフハウゼンで創業した。ポルトギーゼや耐磁時計インヂュニア、ポルトギーゼ、パイロットウォッチと幅広い層に支持されて続けおり、140年前に設立され現在に至るまでその伝統を守っている。
+				p.ti-2 IWCはすべてを自社で作ることのできるコンプリートメーカーへ発展。
+				p.ti-2 20世紀に入り、IWCは欧州から世界市場へと進出。
+				p.ti-2 1930年代には現行ラインとなる大型ケースに懐中時計用ムーブメントを収めたポルトギーゼが誕生。
+//- 产品分类
+mixin _pro-type
+	._pro-type
+		p 產品分類
+		ul
+			li
+				a(href="") ポルトギーゼ
 
 
 
