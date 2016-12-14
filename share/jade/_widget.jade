@@ -1,14 +1,15 @@
 //- mixin-板块
 //- 公用窗口1
 mixin _widget(n)
-	._widget.fn-clear
+	._widget.fn-clear.border
 		.title
 			i.icon-index_31
 			span #{n}
-		if block
-			block
-		else
-			p No content provided
+		.content
+			if block
+				block
+			else
+				p No content provided
 
 //- 公用窗口2
 mixin _box(n)

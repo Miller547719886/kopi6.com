@@ -71,6 +71,12 @@
 //-	 右侧产品版块（新闻pro-new-txt，最热商品pro-sell，人气产品pro-hot，产品标签页tab-pro-box,使用指南_handbook，商品详情pro-detail）
 ._widget {
 	overflow: hidden;
+	padding-bottom: 10px;
+	min-height: 100px;
+
+	.content {
+		padding: 10px;
+	}
 
 	//- 列表单项通用样式
 	.item {
