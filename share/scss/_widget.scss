@@ -75,7 +75,15 @@
 	min-height: 100px;
 
 	.content {
-		padding: 10px;
+		h1.h1 {
+		    text-align: center;
+		    font-size: 16px;
+		    padding-bottom: 10px;
+		    border-bottom: 1px dashed #ccc;
+		    margin-bottom: 15px;
+		}
+
+		// padding: 10px;
 	}
 
 	//- 列表单项通用样式
@@ -136,7 +144,7 @@
 		    top: 8px;
 	    }
 
-	    span {
+	    span,a {
     	    font-size: 14px;
 		    font-weight: bold;
 		    color: #fff;
@@ -348,6 +356,7 @@
     				img {
     					vertical-align: middle;
    						margin: 0 auto;
+   						width: 100%;
     				}
 			    }
 		    }
@@ -424,6 +433,7 @@
 ._brand {
     border: 1px solid #b5b5b5;
     background: #fff;
+    padding: 10px;
 
     .title {
     	height: 34px;
@@ -614,6 +624,12 @@
 }
 //- 品牌信息
 ._brand {
+	.detail {
+		img {
+		    max-width: 756px;
+		}
+	}
+
 	.img {
 		img {
 			display:block;

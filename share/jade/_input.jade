@@ -26,6 +26,28 @@ mixin _search-list
 		|&nbsp;-&nbsp;
 		input.price.p2(type="text",value="88000")
 		input.search-btn.btn(type="button",value="检索")
+//-品牌搜索列表			
+mixin _search-list-brand
+	._search-list.brand.border.fn-clear
+		|ブランド:
+		select.brands
+			option(value="") 選択します
+			option(value="") 選択します
+			option(value="") 選択します
+			option(value="") 選択します
+			option(value="") 選択します
+		|&nbsp;分類：&nbsp;
+		select.type
+			option(value="") 選択します
+			option(value="") 選択します
+			option(value="") 選択します
+			option(value="") 選択します
+			option(value="") 選択します
+		|&nbsp;価格:&nbsp;
+		input.price.p1(type="text",value="0")
+		|&nbsp;-&nbsp;
+		input.price.p2(type="text",value="88000")
+		input.search-btn.btn(type="button",value="检索")
 //- 登录框
 mixin _login
 	._login.border

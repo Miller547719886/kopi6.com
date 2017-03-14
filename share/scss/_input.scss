@@ -40,6 +40,17 @@
     font-size: 16px;
     color: #282828;
 
+    &.brand {
+    	select.brands {
+		    width: 100px;
+    	}
+
+    	.price {
+    		width: 30px;
+    		text-align: center;
+    	}
+    }
+
     select,input {
     	font-size: 13px;
     	padding: 2px;

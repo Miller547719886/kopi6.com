@@ -1,0 +1,34 @@
+//分页插件样式
+.x-pageBoxer {
+    position: absolute;
+    right: 0;
+    top: 0;
+	padding-top: 10px;
+	
+	a {
+	    display: block;
+	    width: 22px;
+	    line-height: 22px;
+	    text-align: center;
+	    font-weight: bold;
+	    border-radius: 15px;
+	    margin-right: 5px;
+	    border: 1px solid #b5b5b5;
+	    float: left;
+	    cursor: pointer;
+
+	    &.x-prev,&.x-next {
+		    width: 70px !important;
+	    }
+
+	    &.active {
+    	    background: #393939;
+			color: #fff;
+			cursor: default;
+	    }
+		
+		&.disable {
+			cursor: default;
+		}
+	}
+}

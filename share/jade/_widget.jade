@@ -1,7 +1,7 @@
 //- mixin-板块
 //- 公用窗口1
 mixin _widget(n)
-	._widget.fn-clear.border
+	._widget.fn-clear
 		.title
 			i.icon-index_31
 			span #{n}
@@ -224,7 +224,7 @@ mixin _handbook
 					p 4 商品発送手配完了後、E-mailにて配送日のご連絡をさせていただきます。
 					p ※ ご注文が集中した場合や、土日祝日・弊社休業日による連休がある場合、弊社倉庫における棚卸し時期及びその前後の時期には、納品までに通常より長い時間がかかることがあります。予めご了承ください。
 //- 品牌专区
-mixin _brand
+mixin _brand-zone
 	._brand.top.fn-clear
 		.title
 			span ブランド專區 
@@ -272,7 +272,7 @@ mixin _shopTrolley
 									li.txt
 										a(href="") エルメスHERMES スーパーコピー クリッパー
 						td.td_pro.td_btm_r 
-							|価格:23500円
+							span 価格:23500円
 							br
 							br
 							span.vip(style="display:none") 会員価格:500円
@@ -291,7 +291,7 @@ mixin _shopTrolley
 								option(value="10") 10
 							input(type="text" style="display:none")
 						td.td_pro.td_btm_r 
-							|23500円
+							span 23500円
 							br
 							br
 							span.vip(style="display:none") 500円
@@ -314,6 +314,87 @@ mixin _shopTrolley
 				li.ta-r
 					a(href="")
 						img(src="../img/b_03.png", alt="")
+//-vip表单
+mixin _vipForm
+	.vip
+		table
+			tbody
+				tr
+					td.td_top
+						|お名前
+						span *
+					td.td_right
+						input(name="name", type="text", class="len n-need")
+						|（例:田中太郎）
+				tr
+					td.td_top
+						|フリガナ
+						span *
+						|（カタカナ）
+					td.td_right
+						input(name="xing", type="text", class="len x-need")
+						|（例:タナカタロウ）
+				tr
+					td.td_top
+						|郵便番号
+						span *
+						|（半角数字、ハイフンなし）
+					td.td_right
+						input(name="postcart", type="text", class="len p-need")
+						|（例:1430001）
+				tr
+					td.td_top
+						|都道府県
+						span *
+					td.td_right
+						select(name="province")
+							option(value="0") 都道府県
+							option(value="1") 都道府県
+							option(value="2") 都道府県
+							option(value="3") 都道府県
+							option(value="4") 都道府県
+							option(value="5") 都道府県
+							option(value="6") 都道府県
+							option(value="7") 都道府県
+							option(value="8") 都道府県
+							option(value="9") 都道府県
+				tr(style="display:none")
+					td.td_top
+						|市区町村
+						span *
+					td.td_right
+						input(name="city", type="text", class="len c-need")
+						|（例:港区南麻布）
+				tr
+					td.td_top
+						|詳しい住所
+						span *
+					td.td_right
+						input(name="address", type="text", class="len a-need")
+						|（例:1-1-1 AAビル202）
+				tr
+					td.td_top
+						|電話番号
+						span *
+						|（半角数字、ハイフンなし）
+					td.td_right
+						input(name="tel", type="number", class="len t-need")
+						|（例:0120123456）
+				tr
+					td.td_top
+						|メールアドレス
+						span *
+						|（半角英数字）
+					td.td_right
+						input(name="mail", type="text", class="len m-need")
+						|（例:info@gmail.com ）
+				tr
+					td.td_top
+						|お客様掲示板
+					td.td_right
+						textarea(name="remark", rows="2", cols="20")
+	.end
+		input(type="image", src="index_39.png")
 //- 搜索列表
 mixin _pro-search
 	+_widget('当面の位置：ホーム >> 檢索')
@@ -514,16 +595,24 @@ mixin _FAQ
 			.img
 				img(src="../img/hf_03.png", alt="")
 //- 品牌介绍
-mixin _brand
+mixin _brand-intro
 	+_widget('当面の位置：ホーム >> スーパーコピー時計 >> IWC >> ポルトギーゼ')
 		._brand.fn-clear
 			.img.fn-left
-				img(src="", alt="")
+				img(src="../img/201642011149160101.jpg", alt="")
 			.txt.fn-right
 				p.ti-2 1868年｡フロレンタイン・アリオスト・ジョーンズ（Florentine Ariosto Jones ）がヨハン・ハインリッヒ・モーザー（Johann Heinrich Moser ）と協力し、スイスのシャフハウゼンで創業した。ポルトギーゼや耐磁時計インヂュニア、ポルトギーゼ、パイロットウォッチと幅広い層に支持されて続けおり、140年前に設立され現在に至るまでその伝統を守っている。
 				p.ti-2 IWCはすべてを自社で作ることのできるコンプリートメーカーへ発展。
 				p.ti-2 20世紀に入り、IWCは欧州から世界市場へと進出。
 				p.ti-2 1930年代には現行ラインとなる大型ケースに懐中時計用ムーブメントを収めたポルトギーゼが誕生。
+mixin _brand-intro1
+	+_widget('当面の位置：ホーム >> スーパーコピー時計 >> IWC')
+		._brand.fn-clear
+			.detail
+				img(src="../img/20160310212514_5797.jpg", alt="")
+				span.h2 ロレックス
+				a(href="") 【www.kopi6.com】
+				p 1908年、創業者のハンス・ウィルスドルフによって商標登録されたロレックス。圧倒的な人気・知名度を誇る、まさに"機械式時計の王者"です。
 //- 产品分类
 mixin _pro-type
 	._pro-type

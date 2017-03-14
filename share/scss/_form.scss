@@ -26,6 +26,69 @@
    	}
 }
 
+//-确认购买表单
+.shopTrolley .vip {
+    table {
+        line-height: 25px;
+        width: 1000px;
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        font-size: 14px;
+        color: #282828;
+        margin-bottom: 15px;
+        margin-left: 3px;
+        margin-top: 50px;
+
+        span {
+            color: #ff0000;
+        }
+
+        tbody {
+            margin: 0;
+            padding: 0;
+
+            td.td_top {
+                border-bottom: 1px solid #ccc;
+                padding-left: 10px;
+                border-right: 1px solid #ccc;
+                background-color: #e5e5e5;
+                width: 325px;
+            }
+
+            textarea {
+                height: 100px;
+                width: 350px;
+                margin: 3px;
+            }
+
+            td.td_right {
+                border-bottom: 1px solid #ccc;
+                width: 655px;
+                padding-left: 10px;
+
+                input.len {
+                    width: 250px;
+                    height: 20px;
+                    margin: 3px;
+                    padding: 2px;
+                }
+            }
+        }
+    }
+}
+
+.shopTrolley .end {
+    width: 1000px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #282828;
+    margin-left: 3px;
+    text-align: center;
+
+    input {
+        border-width: 0px;
+    }
+}
 .td_btm {
     height: 25px;
     width: 77px;
@@ -48,6 +111,10 @@
     span.vip {
     	color: #ff0000;
     }
+
+    span {
+        line-height: 86px;
+    }
 }
 
 .td_img {
@@ -61,6 +128,7 @@
     	img {
     		width:86px;
     		height: 86px;
+            // vertical-align: middle;
     	}
     }
 

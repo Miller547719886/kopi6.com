@@ -1,0 +1,26 @@
+.x-pageBoxer {
+	user-select: none;
+}
+.x-pageBoxer .x-pageBtn {
+    height: 22px;
+    padding: 0 8px;
+    background-color: #fff;
+    line-height: 22px;
+    margin: 0 1px 0 2px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.x-pageBoxer .x-pageBtn.disabled {
+	cursor: default;
+}
+
+.x-pageBoxer .x-pageBtn.active {
+	display: inline-block;
+    border-color: #A2161B;
+    color: #A2161B;
+    cursor: default;
+}
