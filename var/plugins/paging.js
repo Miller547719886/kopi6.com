@@ -53,11 +53,11 @@ var data = {
 	//配置选项
 	var defaults = {
 		url: '',//ajax接口地址(必选)
-		limit: 8,//每页商品数//(必选)
 		className: '',//分页组件外层结构类(必选)
-		onClick: function(index, total, rows) {
-			console.info(index, total, rows);
+		onClick: function(index, pageNum, total, rows) {
+			console.info(index, pageNum, total, rows);
 		},//点击分页回调(必选)
+		data: {},
 		maxPage: 7,//最多分页按钮数(可选)
 		edge: 1,//左右最少分页按钮数(可选)
 		showSide: true
@@ -65,7 +65,7 @@ var data = {
 
 	$.extend ({
 		setPages: function(options) {
-			var opts = $.extend({},defaults,options||{});
+			var opts = $.extend({}, defaults, options||{});
 			var PAGING = {
 				SL: {
 					$pageOuter: $('.' + opts.className)
@@ -80,16 +80,16 @@ var data = {
 				},//虚拟dom存储对象
 				pIndex: 1,//当前分页下标
 				pageNum: 0,
-				firstLoad: true,
 
 				maxPage: (opts.maxPage % 2 == 0) ? (opts.maxPage + 1) : opts.maxPage,//最多显示多少个分页按钮
 				url: opts.url,//ajax接口地址(必选)
-				limit:opts.limit,//每页商品数//(必选)
+				limit: opts.data.limit ? opts.data.limit : 10,//每页商品数//(必选)
 				headL: opts.edge,//左边最少页数(可选)
 				tailL: opts.edge, //右边最少页数(可选)
 				className: opts.className,//自定义样式类(可选)
 				onClick: opts.onClick,//点击分页回调(必选)
 				showSide: opts.showSide,
+				_data: opts.data,
 				//填充分页按钮
 				fillPages: function(bool, index) {
 					if (bool) {
@@ -100,28 +100,22 @@ var data = {
 				},
 				// 页面加载
 				initPaging: function() {
-					var offset = (PAGING.pIndex - 1) * PAGING.limit;//偏移量
-
-					// $.ajax({
-					// 	type: 'GET',
-					// 	url: PAGING.url,
-					// 	data: {
-					// 		"offset": offset, 
-					// 		"limit": PAGING.limit
-					// 	},
-					// 	success: function(data) {
+					var start = (PAGING.pIndex - 1) * PAGING.limit;//偏移量
+					this._data.start = start;
+					$.ajax({
+						type: 'GET',
+						url: PAGING.url,
+						data: PAGING._data,
+						success: function(data) {
 							//处理data
+							//console.log(PAGING.limit,123);
 							var total = data.total,
 								rows = data.rows,
 								pageNum = PAGING.pageNum = Math.ceil(total / PAGING.limit);
-							this.switchPages();
-							if (!PAGING.firstLoad) {
-								opts.onClick(PAGING.pIndex, total, rows);
-							} else {
-								PAGING.firstLoad = false;
-							}
-					// 	}
-					// });
+							PAGING.switchPages();
+							opts.onClick(PAGING.pIndex, pageNum, total, rows);
+						}
+					});
 				},
 				//点击分页按钮
 				clickPaging: function() {
@@ -134,9 +128,9 @@ var data = {
 						if (_this.is('.x-pageBtn')) {
 							if (_this.is('.disabled')) {
 								e.preventDefault();
-								console.log('点了页没用');
+								//console.log('点了页没用');
 							} else if (_this.html() == '...') {
-								console.log('点了页没用');
+								//console.log('点了页没用');
 							} else {
 								if (_this.is('.x-prev')) {
 									PAGING.pIndex = PAGING.pIndex - 1;
@@ -169,7 +163,7 @@ var data = {
 						mainL = pageL - this.headL - this.tailL,//中间长度
 						code = '';//分页字符串
 					if (totalP < this.pIndex) {
-						console.log('总页数不能小于当前页数！');
+						//console.log('总页数不能小于当前页数！');
 						return false;
 					}
 					//不需要省略
@@ -251,7 +245,7 @@ var data = {
 					this.initPaging();
 					this.clickPaging();
 				}
-			}
+			};
 			PAGING.init();
 		}
 	});	
@@ -260,10 +254,11 @@ var data = {
 $.setPages({
 	url: "/api/getNewGoods.action",//ajax接口地址(必选)
 	limit: 8,//每页商品数//(必选)
-	className: 'a',//分页组件父元素类(必选)
-	onClick: function(index, total, rows) {
-		
+	className: 'xxx2',//分页组件父元素类(必选)
+	onClick: function(index, pageNum, total, rows) {
+		$('.xxx1').html(total);
 	},//点击分页回调(必选)
+	data: {"name":"123","age":123},
 	maxPage: 8,//最多分页按钮数(可选)
 	edge: 1,//左右最少分页按钮数(可选)
 	showSide: true//是否有上下页按钮(可选)

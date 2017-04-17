@@ -37,9 +37,9 @@ gulp.task('styles', function() {
 		.pipe($.concat('kopi6.min.css'))
 		.pipe(gulp.dest(CSS_DEST))
 		.pipe($.livereload())
-		.pipe($.notify({
-			message: 'Styles task complete'
-		}));
+		// .pipe($.notify({
+		// 	message: 'Styles task complete'
+		// }));
 });
 
 //处理jade-html
@@ -52,9 +52,9 @@ gulp.task('htmls', function() {
 		// .pipe($.minifyHtml())
 		.pipe(gulp.dest(HTML_DEST))
 		.pipe($.livereload())
-		.pipe($.notify({
-			message: 'Htmls task complete'
-		}))
+		// .pipe($.notify({
+		// 	message: 'Htmls task complete'
+		// }))
 });
 
 // 处理javascript 
@@ -70,14 +70,14 @@ gulp.task('scripts', function() {
 		.pipe($.uglify())
 		.pipe(gulp.dest(JS_DEST))
 		.pipe($.livereload())
-		.pipe($.notify({
-			message: 'Scripts task complete'
-		}));
+		// .pipe($.notify({
+		// 	message: 'Scripts task complete'
+		// }));
 });
 
 // 处理图片
 gulp.task('images', function() {
-	return gulp.src(['share/img/**/*.*','!share/img/sprite/**/*.*'])
+	return gulp.src(['share/img/**/*.*'])
 		.pipe($.cache($.imagemin({
 			optimizationLevel: 3,
 			progressive: true,
@@ -85,18 +85,18 @@ gulp.task('images', function() {
 		})))
 		.pipe(gulp.dest(IMG_DEST))
 		.pipe($.livereload())
-		.pipe($.notify({
-			message: 'Images task complete'
-		}))
+		// .pipe($.notify({
+		// 	message: 'Images task complete'
+		// }))
 });
 
 // 合并雪碧图
 gulp.task('sprite',function () {
 	var spriteData = gulp.src('share/img/sprite/sprite_1/*.*').pipe($.spritesmith({
-	    imgName: 'var/img/sprite_1.png',
+	    imgName: 'share/img/sprite_1.png',
 	    cssName: 'share/spriteCSS/sprite_1.css'
 	}));
-	return spriteData.pipe(gulp.dest('./'));
+	return spriteData.pipe(gulp.dest(''));
 });
 
 // 清理build目录
@@ -105,9 +105,9 @@ gulp.task('clean', function() {
 		read: false
 	})
 	.pipe($.clean())
-	.pipe($.notify({
-		message: 'Clean task complete'
-	}));
+	// .pipe($.notify({
+	// 	message: 'Clean task complete'
+	// }));
 });
 
 // 设置服务器
@@ -129,13 +129,13 @@ gulp.task('watch', function() {
 	gulp.watch('share/img/sprite/**/*.*', ['sprite']);
 
 	// 监听sass
-	gulp.watch('share/scss/**/*.scss', ['styles']);
+	gulp.watch(['share/scss/**/*.scss','share/spriteCSS/**/*.css'], ['styles']);
 
 	// 监听js
 	gulp.watch('var/js/**/*.js', ['scripts']);
 
 	// 监听图片
-	gulp.watch('var/img/**/*', ['images']);
+	gulp.watch('share/img/**/*', ['images']);
 
 	// 监听html
 	gulp.watch('share/jade/**/*.jade', ['htmls']);
@@ -144,7 +144,7 @@ gulp.task('watch', function() {
 
 // build任务
 gulp.task('build', function(cb){
-	$.sequence('clean',['sprite', 'styles', 'scripts', /*'images',*/'htmls', 'watch'])(cb)
+	$.sequence('clean',['sprite', 'styles', 'scripts', 'images','htmls', 'watch'])(cb)
 });
 
 // 主任务

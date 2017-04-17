@@ -116,7 +116,7 @@
 		    width: 110px;
 		    height: 29px;
 		    border-radius: 4px;
-		    background: #A71C24;
+		    background: $blue;
 		    text-align: center;
 		    line-height: 29px;
 		    font-size: 14px;
@@ -128,7 +128,7 @@
 	.title {
 	    height: 34px;
 	    border: 1px solid #b5b5b5;
-	    background: #393939;
+	    background: $blue;
 	    line-height: 34px;
 	    padding-left: 35px;
 	    position: relative;
@@ -436,9 +436,10 @@
     padding: 10px;
 
     .title {
+    	width: 719px;
     	height: 34px;
 	    border-bottom: 1px solid #b5b5b5;
-	    background: #393939;
+	    background: $blue;
 	    line-height: 34px;
 	    padding-left: 35px;
 	    position: relative;
@@ -459,8 +460,9 @@
     .box {
     	a {
 		    display: block;
+		    overflow: hidden;
 		    float: left;
-		    width: 194px;
+		    width: 189px;
 		    height: 98px;
 
 		    img {
@@ -510,6 +512,15 @@
     	}
     }
 
+    a.submit {
+    	display: block;
+    	text-align: center;
+    	margin: 0 auto;
+    	width: 60px;
+		padding: 2px 6px;
+	    -webkit-appearance: button;
+    }
+
     textarea {
 	    height: 100px;
 	    width: 350px;
@@ -548,7 +559,7 @@
 	.tab-title {
 		height: 33px;
 	    background: #fff;
-	    border-top: 6px solid #393939;
+	    border-top: 6px solid $blue;
 
     	span {
 		    float: left;
@@ -660,7 +671,7 @@
 		    display: inline-block;
 		    height: 26px;
 		    width: 163px;
-		    background: #393939;
+		    background: $blue;
 		    text-align: center;
 		    margin-right: 20px;
 		    margin-bottom: 9px;

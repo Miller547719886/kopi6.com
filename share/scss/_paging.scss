@@ -1,6 +1,6 @@
 //- 组件类-分页样式
 ._paging {
-    border-top: 2px solid #393939;
+    border-top: 2px solid $blue;
     line-height: 45px;
     position: relative;
     
@@ -32,7 +32,7 @@
 		    }
 
 		    &.current {
-	    	    background: #393939;
+	    	    background: $blue;
     			color: #fff;
 		    }
 		}
