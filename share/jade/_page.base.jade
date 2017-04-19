@@ -23,20 +23,25 @@ html
 			block banner
 			//- 默认左右结构
 			block main
-				.right.top.fn-clear
+				.right.fn-clear
 					block right
-						+_pro-new-txt('一番新しいアップロード')
-						+_pro-sell
+						+_search-list
+						.fn-clear
+							+_pro-new-txt('一番新しいアップロード')
+							+_ems
+						.fn-clear
+							+_pro-sell
+							+_pro-new
 						+_pro-hot
 						+_pro-new-pic
 						+_handbook
 						+_brand-zone
-				.left.top.fn-clear
+				.left.fn-clear
 					block left
-						+_login
-						+_ems
 						+_side-nav
-						+_pro-new
+				.pop-box
+					block pop
+						+_pop-login
 
 			block footer
 				+_footer

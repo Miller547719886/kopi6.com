@@ -62,13 +62,12 @@ mixin func-scroll-v
 	
 		$(function() {
 			var $d = $('.js-scroll-v');
-			$d.each(function(index,element) {
+			$d.each(function(index, element) {
 				var _this = $(this),
 					$d_f = _this.find('.js-scroll1'),
 					$d_s = _this.find('.js-scroll2'),
 					$d_f_i = $d_f.find('.item'),
 					d_h = _this.height();
-
 				_this.css({
 					"height":d_h,
 					"overflow":"hidden"
@@ -96,7 +95,6 @@ mixin func-scroll-h
 			var b = _b.get(0),
 				l = parseInt(_a.css('marginLeft'));
 			var r_w = b.offsetWidth - parseInt(_b.css('paddingLeft')) * 2;
-			console.log(Math.abs(l),r_w);
 			_a.css('marginLeft',l-1);
 			if (Math.abs(l) >= r_w) {
 				_a.css('marginLeft',0);

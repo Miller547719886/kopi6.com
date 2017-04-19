@@ -74,6 +74,17 @@
 	padding-bottom: 10px;
 	min-height: 100px;
 
+	&.wid-side-l {
+		float: left;
+		width: 562px;
+		margin-right: 15px;
+	}
+
+	&.wid-side-r {
+		float: left;
+		width: 201px;
+	}
+
 	.content {
 		h1.h1 {
 		    text-align: center;

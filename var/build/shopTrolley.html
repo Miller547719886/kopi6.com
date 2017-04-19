@@ -13,7 +13,17 @@
 						<div class="scroll fn-left">
 							<marquee direction="left" behavior="scroll" scrollamount="3">藤原宝飾会員優待のイベント情報：新規会員登録、注文金額2万円以上，記念品を贈る（一回制限）。累計注文金額5万円以上，贈呈価値5000円商品。累計注文金額10万円以上，贈呈価値12000円商品。累計注文金額20万円以上，贈呈価値3万円商品。累計注文金額50万円以上，贈呈価値10万円商品。累計注文金額100万円以上，贈呈価値25万円商品。</marquee>
 						</div>
-						<div class="txt fn-right icon-index_02">弊社はい日本＆中国最大のスーパーコピーブランド 専門店。</div>
+						<div class="txt fn-right icon-index_02"> 
+							<div class="fn-clear">
+									<div class="fn-right"><a href="javascript:login();" class="mr-5">登录</a><a href="signIn.html" class="mr-5">注册</a></div>
+									<script>
+										var login = function() {
+											var _pop = document.querySelector('._pop');
+											_pop.style.display = "block";
+										};
+									</script>
+							</div>
+						</div>
 					</div>
 					<div class="mid fn-clear"><a href="" class="logo"><img src="../img/2016381926767.jpg" alt=""></a>
 							<div class="_search">
@@ -221,13 +231,12 @@
 			
 			$(function() {
 				var $d = $('.js-scroll-v');
-				$d.each(function(index,element) {
+				$d.each(function(index, element) {
 					var _this = $(this),
 						$d_f = _this.find('.js-scroll1'),
 						$d_s = _this.find('.js-scroll2'),
 						$d_f_i = $d_f.find('.item'),
 						d_h = _this.height();
-			
 					_this.css({
 						"height":d_h,
 						"overflow":"hidden"
@@ -254,7 +263,6 @@
 				var b = _b.get(0),
 					l = parseInt(_a.css('marginLeft'));
 				var r_w = b.offsetWidth - parseInt(_b.css('paddingLeft')) * 2;
-				console.log(Math.abs(l),r_w);
 				_a.css('marginLeft',l-1);
 				if (Math.abs(l) >= r_w) {
 					_a.css('marginLeft',0);

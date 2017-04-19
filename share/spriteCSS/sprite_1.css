@@ -16,17 +16,17 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 // HTML
 <i class="icon icon-home"></i>
 */
+.icon-close {
+  background-image: url(../img/sprite_1.png);
+  background-position: 0px -346px;
+  width: 32px;
+  height: 32px;
+}
 .icon-index_02 {
   background-image: url(../img/sprite_1.png);
-  background-position: -200px -285px;
+  background-position: 0px -285px;
   width: 403px;
   height: 24px;
-}
-.icon-index_31 {
-  background-image: url(../img/sprite_1.png);
-  background-position: -603px -285px;
-  width: 17px;
-  height: 16px;
 }
 .icon-index_46 {
   background-image: url(../img/sprite_1.png);
@@ -36,25 +36,25 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 .icon-index_57 {
   background-image: url(../img/sprite_1.png);
-  background-position: -200px -309px;
+  background-position: 0px -309px;
   width: 201px;
   height: 37px;
 }
 .icon-star {
   background-image: url(../img/sprite_1.png);
-  background-position: 0px -285px;
-  width: 200px;
-  height: 200px;
+  background-position: -403px -285px;
+  width: 16px;
+  height: 16px;
 }
 .icon-tab_03 {
   background-image: url(../img/sprite_1.png);
-  background-position: -401px -309px;
+  background-position: -201px -309px;
   width: 167px;
   height: 30px;
 }
 .icon-tab_06 {
   background-image: url(../img/sprite_1.png);
-  background-position: -568px -309px;
+  background-position: -368px -309px;
   width: 167px;
   height: 30px;
 }

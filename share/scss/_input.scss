@@ -57,7 +57,7 @@
     }
 
     select.type,select.brands {
-    	width: 180px;
+    	width: 160px;
     }
 
     input.price {
@@ -75,71 +75,3 @@
     }
 }
 
-//- 登录框
-._login {
-	margin-bottom: 15px;
-
-	.title {
-	    background: $blue;
-	    font-size: 14px;
-	    color: #fff;
-	    text-align: center;
-	    padding: 0 25px;
-	}
-
-	li {
-		white-space: nowrap;
-		line-height: 35px;
-		padding: 0 10px;
-	}
-
-	ul.login-1 {
-		li {
-			span {
-				display: inline-block;
-    			width: 80px;
-			}
-
-			input.ipt {
-			    width: 90px;
-			    padding: 2px;
-			}
-
-			input.validate {
-			    width: 44px;
-			    padding: 2px;
-			}
-
-			img {
-				display: inline-block;
-
-				&.vali-img {
-					cursor: pointer;
-				    width: 44px !important;
-				    height: 23px;
-				    margin-top: 6px;
-				    position: absolute;
-				}
-			}
-
-			a {
-				text-decoration: none;
-    			color: #000;
-			}
-		}
-	}
-
-	ul.login-2 {
-		display: none;
-
-		em.user {
-			font-size:14px;
-			font-weight:bold;
-			color:#f00;
-		}
-
-		&.active {
-			display: block;
-		}
-	}
-}

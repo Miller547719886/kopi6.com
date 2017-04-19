@@ -1,7 +1,7 @@
 //- mixin-板块
 //- 公用窗口1
-mixin _widget(n)
-	._widget.fn-clear
+mixin _widget(n,c)
+	._widget.fn-clear(class=c ? c : "")
 		.title
 			i.icon-star
 			span #{n}
@@ -20,52 +20,50 @@ mixin _box(n)
 
 //- ems
 mixin _ems
-	._ems.border
-		.title
-			img(src="../img/index_49.png", alt="")
-		.demo.js-scroll-v(data-height="198")
-			ul.demo1.js-scroll1
-				li.item
-					a(href="") •斎藤 様 番号:EA069050749CN
-				li.item
-					a(href="") •斎藤 様 番号:EA069050749CN
-				li.item
-					a(href="") •斎藤 様 番号:EA069050749CN
-				li.item
-					a(href="") •斎藤 様 番号:EA069050749CN
-				li.item
-					a(href="") •斎藤 様 番号:EA069050749CN
-				li.item
-					a(href="") •斎藤 様 番号:EA069050749CN
-			ul.demo2.js-scroll2
+	+_widget('EMS追踪', 'wid-side-r')
+		._ems
+			.demo.js-scroll-v(data-height="198")
+				ul.demo1.js-scroll1
+					li.item
+						a(href="") •斎藤 様 番号:EA069050749CN
+					li.item
+						a(href="") •斎藤 様 番号:EA069050749CN
+					li.item
+						a(href="") •斎藤 様 番号:EA069050749CN
+					li.item
+						a(href="") •斎藤 様 番号:EA069050749CN
+					li.item
+						a(href="") •斎藤 様 番号:EA069050749CN
+					li.item
+						a(href="") •斎藤 様 番号:EA069050749CN
+				ul.demo2.js-scroll2
 //- 最新制品
 mixin _pro-new
-	._pro-new.border
-		.title
-			img(src="../img/index_64.png", alt="")
-		.demo.js-scroll-v(data-height="485")
-			ul.demo1.js-scroll1
-				mixin item
-					li.item
-						.new-ibox
-							.new-img
-								a(href="")
-									img(src="../img/201612111295520101.jpg", alt="")
-						ul
-							li
-								a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-290
-							li N品：27800円
-				+item
-				+item
-				+item
-				+item
-				+item
-			ul.demo2.js-scroll2
+	+_widget('最新制品', 'wid-side-r')
+		._pro-new.border
+			.demo.js-scroll-v(data-height="485")
+				ul.demo1.js-scroll1
+					mixin item
+						li.item
+							.new-ibox
+								.new-img
+									a(href="")
+										img(src="../img/201612111295520101.jpg", alt="")
+							ul
+								li
+									a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-290
+								li N品：27800円
+					+item
+					+item
+					+item
+					+item
+					+item
+				ul.demo2.js-scroll2
 //- 产品新闻
 mixin _pro-new-txt
-	+_widget('一番新しいアップロード')
-		.box.border._pro-new-txt.fn-clear
-			ul
+	+_widget('一番新しいアップロード', 'wid-side-l')
+		.box.border._pro-new-ems.fn-clear
+			ul.fn-clear._pro-new-txt
 				li
 					i
 					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
@@ -92,7 +90,7 @@ mixin _pro-new-txt
 					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
 //- 热卖商品
 mixin _pro-sell
-	+_widget('売り上げランキング')
+	+_widget('売り上げランキング', 'wid-side-l')
 		._pro-sell.fn-clear.js-scroll-h
 			.scroll-auto.fn-clear
 				.scroll1.fn-clear
@@ -513,7 +511,7 @@ mixin _pro-detail
 				.pro-ibox
 					.pro-img
 						img(src="../img/20164291701710101.jpg", alt="")
-				p 
+				p.fn-clear
 					a.prev(href="")
 						img(src="../img/pro_18.png", alt="")
 					a.next(href="")
