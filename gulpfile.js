@@ -76,8 +76,8 @@ gulp.task('scripts', function() {
 });
 
 // 处理图片
-gulp.task('images', function() {
-	return gulp.src(['share/img/**/*.*'])
+gulp.task('images', ['sprite'], function() {
+	return gulp.src(['share/img/**/*.*', '!share/img/sprite/**/*.*'])
 		.pipe($.cache($.imagemin({
 			optimizationLevel: 3,
 			progressive: true,
@@ -90,12 +90,18 @@ gulp.task('images', function() {
 		// }))
 });
 
-// 合并雪碧图
+// 压缩图片并合并雪碧图
 gulp.task('sprite',function () {
-	var spriteData = gulp.src('share/img/sprite/sprite_1/*.*').pipe($.spritesmith({
-	    imgName: 'share/img/sprite_1.png',
-	    cssName: 'share/spriteCSS/sprite_1.css'
-	}));
+	var spriteData = gulp.src('share/img/sprite/sprite_1/*.*')
+		.pipe($.cache($.imagemin({
+			optimizationLevel: 3,
+			progressive: true,
+			interlaced: true
+		})))
+		.pipe($.spritesmith({
+		    imgName: 'share/img/sprite_1.png',
+		    cssName: 'share/spriteCSS/sprite_1.css'
+		}));
 	return spriteData.pipe(gulp.dest(''));
 });
 

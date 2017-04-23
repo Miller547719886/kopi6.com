@@ -1,4 +1,10 @@
-//- 组件类-页头样式
+/**
+ *  @module 组件-页头样式
+ *  @author Rufer <547719886@qq.com>
+ *  @license GPL-3.0+
+ *  @copyright © 2017 https://github.com/Miller547719886
+ */
+
 ._head {
 	.htop {
 		.scroll {
@@ -15,6 +21,12 @@
 			line-height: 24px;
 			overflow: hidden;
 			padding-left: 35px;
+
+			a:hover {
+				-webkit-transition: color .2s linear 0s;
+				transition: color .2s linear 0s;
+				color: #800000;
+			}
 		}
 	}
 

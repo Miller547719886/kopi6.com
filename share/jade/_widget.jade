@@ -1,10 +1,11 @@
 //- mixin-板块
 //- 公用窗口1
-mixin _widget(n,c)
+mixin _widget(n,c,r)
 	._widget.fn-clear(class=c ? c : "")
 		.title
-			i.icon-star
+			i.icon-item
 			span #{n}
+			a.fn-right #{r}
 		.content
 			if block
 				block
@@ -15,7 +16,7 @@ mixin _widget(n,c)
 mixin _box(n)
 	._box.border.fn-clear.top
 		.tab-title
-			span.icon-tab_06 #{n}
+			span #{n}
 		.tab-box
 
 //- ems
@@ -24,17 +25,17 @@ mixin _ems
 		._ems
 			.demo.js-scroll-v(data-height="198")
 				ul.demo1.js-scroll1
-					li.item
+					li.js-item
 						a(href="") •斎藤 様 番号:EA069050749CN
-					li.item
+					li.js-item
 						a(href="") •斎藤 様 番号:EA069050749CN
-					li.item
+					li.js-item
 						a(href="") •斎藤 様 番号:EA069050749CN
-					li.item
+					li.js-item
 						a(href="") •斎藤 様 番号:EA069050749CN
-					li.item
+					li.js-item
 						a(href="") •斎藤 様 番号:EA069050749CN
-					li.item
+					li.js-item
 						a(href="") •斎藤 様 番号:EA069050749CN
 				ul.demo2.js-scroll2
 //- 最新制品
@@ -44,7 +45,7 @@ mixin _pro-new
 			.demo.js-scroll-v(data-height="485")
 				ul.demo1.js-scroll1
 					mixin item
-						li.item
+						li.js-item
 							.new-ibox
 								.new-img
 									a(href="")
@@ -62,32 +63,39 @@ mixin _pro-new
 //- 产品新闻
 mixin _pro-new-txt
 	+_widget('一番新しいアップロード', 'wid-side-l')
-		.box.border._pro-new-ems.fn-clear
-			ul.fn-clear._pro-new-txt
-				li
-					i
-					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
-				li
-					i
-					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
-				li
-					i
-					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
-				li
-					i
-					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
-				li
-					i
-					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
-				li
-					i
-					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
-				li
-					i
-					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
-				li
-					i
-					a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+		ul.fn-clear._pro-new-txt
+			li
+				i
+				a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				span.time 16/10/10
+			li
+				i
+				a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				span.time 16/10/10
+			li
+				i
+				a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				span.time 16/10/10
+			li
+				i
+				a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				span.time 16/10/10
+			li
+				i
+				a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				span.time 16/10/10
+			li
+				i
+				a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				span.time 16/10/10
+			li
+				i
+				a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				span.time 16/10/10
+			li
+				i
+				a(href="") モンクレール☆MONCLER ダウンジャケット レディース moncler-292
+				span.time 16/10/10
 //- 热卖商品
 mixin _pro-sell
 	+_widget('売り上げランキング', 'wid-side-l')
@@ -165,10 +173,10 @@ mixin _pro-new-pic
 	+_widget('一番新しいアップロード')
 		._pro-new-pic
 			.pro-tab.top.fn-clear
-				span.t-1.icon-tab_03.icon-tab_06 スーパーコピー時計
-				span.t-2.icon-tab_03 スーパーコピーバッグ
-				span.t-3.icon-tab_03 スーパーコピー財布
-				span.t-4.icon-tab_03 その他商品
+				span スーパーコピー時計
+				span スーパーコピーバッグ
+				span スーパーコピー財布
+				span その他商品
 			.tab-pro-box.fn-clear
 				mixin box
 					.box.fn-clear
@@ -223,11 +231,8 @@ mixin _handbook
 					p ※ ご注文が集中した場合や、土日祝日・弊社休業日による連休がある場合、弊社倉庫における棚卸し時期及びその前後の時期には、納品までに通常より長い時間がかかることがあります。予めご了承ください。
 //- 品牌专区
 mixin _brand-zone
-	._brand.top.fn-clear
-		.title
-			span ブランド專區 
-			a(href="") もっと見る>>
-		.box 
+	+_widget('品牌专区', '', 'もっと見る>>')
+		._brand.fn-clear
 			mixin item
 				a(href="")
 					img(src="../img/20163102123892.jpg", alt="")
@@ -511,11 +516,9 @@ mixin _pro-detail
 				.pro-ibox
 					.pro-img
 						img(src="../img/20164291701710101.jpg", alt="")
-				p.fn-clear
-					a.prev(href="")
-						img(src="../img/pro_18.png", alt="")
-					a.next(href="")
-						img(src="../img/pro_15.png", alt="")
+					p.fn-clear
+						a.prev(href="") 前页
+						a.next(href="") 下页
 				.txt(style="border:none;")
 					span.pro-info ※ ご注文後、在庫を確認の上、当店よりお支払い総額とお振り替え口座名をメールにてお知らせいたします。万か一メール届かないの場合、当社まで御一報お願いします。
 			.txt.fn-clear

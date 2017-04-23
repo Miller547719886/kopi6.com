@@ -1,0 +1,43 @@
+//- mixin-侧边栏
+mixin _sidebar
+	._sidebar
+		._side-item
+			a._side-btn.icon-buy(href="shopTrolley.html" title="")
+		._side-item
+			a._side-btn.icon-mail(href="" title="")
+		._side-item.js-up(style="visibility:visible")
+			._side-btn.icon-up(title="")
+	script.
+		(function(win, doc, con, undefined) {
+			var btn = doc.querySelector('.js-up'),
+				btns = doc.querySelectorAll('._side-item'),
+				i,
+				len = btns.length;
+			for (i = 0; i < len; i++) {
+				btns[i].addEventListener('mouseenter', function(e) {
+					e.stopPropagation();
+					var tg = this.querySelector('._side-btn'),
+						clsName = tg.className.match(/icon-\w+/g).toString();
+					tg.className = tg.className.replace(clsName, clsName + 'H');
+				});
+				btns[i].addEventListener('mouseleave', function(e) {
+					e.stopPropagation();
+					var tg = this.querySelector('._side-btn'),
+						clsName = tg.className.match(/icon-\w+/g).toString();
+					tg.className = tg.className.replace(clsName, clsName.slice(0, -1));
+				});
+			}
+			win.addEventListener('scroll', function() {
+				var scrollTop = win.pageYOffset || doc.documentElement.scrollTop || doc.body.scrollTop;
+				if (scrollTop != 0) {
+					btn.style.visibility = "visible";
+				} else {
+					btn.style.visibility = "hidden";
+				}
+			});
+			btn.addEventListener('click', function(e) {
+				e.preventDefault();
+				doc.documentElement.scrollTop = doc.body.scrollTop = 0;
+				btn.style.visibility = "hidden";
+			});
+		}(window, document, console));

@@ -1,4 +1,10 @@
-//- 组件类-弹窗样式
+/**
+ *  @module 组件-弹窗样式
+ *  @author Rufer <547719886@qq.com>
+ *  @license GPL-3.0+
+ *  @copyright © 2017 https://github.com/Miller547719886
+ */
+
 ._pop {
 	box-sizing: border-box;
 	position: fixed;
@@ -33,7 +39,7 @@
 		margin-bottom: 15px;
 
 		.title {
-		    background: $blue;
+		    background: #6e6568;
 		    font-size: 14px;
 		    color: #fff;
 		    text-align: center;

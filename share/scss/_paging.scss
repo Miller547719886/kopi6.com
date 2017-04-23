@@ -1,6 +1,12 @@
-//- 组件类-分页样式
+/**
+ *  @module 组件-分页样式
+ *  @author Rufer <547719886@qq.com>
+ *  @license GPL-3.0+
+ *  @copyright © 2017 https://github.com/Miller547719886
+ */
+
 ._paging {
-    border-top: 2px solid $blue;
+    border-top: 2px solid #6e6568;
     line-height: 45px;
     position: relative;
     
@@ -32,7 +38,7 @@
 		    }
 
 		    &.current {
-	    	    background: $blue;
+	    	    background: #6e6568;
     			color: #fff;
 		    }
 		}

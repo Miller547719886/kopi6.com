@@ -1,4 +1,10 @@
-//分页插件样式
+/**
+ *  @module 组件-分页插件样式
+ *  @author Rufer <547719886@qq.com>
+ *  @license GPL-3.0+
+ *  @copyright © 2017 https://github.com/Miller547719886
+ */
+
 .x-pageBoxer {
     position: absolute;
     right: 0;
@@ -22,7 +28,7 @@
 	    }
 
 	    &.active {
-    	    background: $blue;
+    	    background: #6e6568;
 			color: #fff;
 			cursor: default;
 	    }

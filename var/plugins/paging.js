@@ -1,6 +1,11 @@
-/*
- *分页组件：x-pageBoxer x-pageBtn
+/**
+ *  @module 分页组件
+ *  @author Rufer <547719886@qq.com>
+ *  @class x-pageBoxer x-pageBtn
+ *  @license GPL-3.0+
+ *  @copyright © 2017 https://github.com/Miller547719886
  */
+
 //- 分页
 var data = {
 "rows":[

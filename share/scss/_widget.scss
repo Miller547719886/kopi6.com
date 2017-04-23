@@ -1,12 +1,21 @@
-//- 组件类-板块样式
+/**
+ *  @module 组件-窗口组件样式
+ *  @author Rufer <547719886@qq.com>
+ *  @license GPL-3.0+
+ *  @copyright © 2017 https://github.com/Miller547719886
+ */
+
 //- ems
 ._ems {
+	height: 150px;
+
 	.title {
 		height: 46px;
     	border-bottom: 1px solid #b5b5b5;
 	}
 
 	.demo {
+		height: 100%;
 		padding: 0 5px;	
 	}
 
@@ -23,6 +32,8 @@
 }
 //- 最新制品
 ._pro-new {
+	height: 259px;
+	overflow: hidden;
 	margin-top: 15px;
     padding-bottom: 5px;
 
@@ -36,7 +47,7 @@
     }
 
     ul {
-    	li.item {
+    	li.js-item {
     		border-bottom: 1px dashed #ccc;
 		    position: relative;
 		    padding: 3px;
@@ -60,7 +71,7 @@
     			top: 0;
 
     			li {
-    				color: #A71C24;
+    				color: #6e6568;
 				    height: 60px;
 				    overflow: hidden;
     			}
@@ -73,6 +84,9 @@
 	overflow: hidden;
 	padding-bottom: 10px;
 	min-height: 100px;
+	background-color: #fff;
+	box-shadow: 0px 2px 10px #cdcdcd;
+	margin-bottom: 15px;
 
 	&.wid-side-l {
 		float: left;
@@ -115,7 +129,7 @@
 
 		p.p {
 			font-size: 14px;
-		    color: #A71C24;
+		    color: #6e6568;
 		    font-weight: bold;
 		    text-align: center;
 		    line-height: 25px;
@@ -127,7 +141,7 @@
 		    width: 110px;
 		    height: 29px;
 		    border-radius: 4px;
-		    background: $blue;
+		    background: #6e6568;
 		    text-align: center;
 		    line-height: 29px;
 		    font-size: 14px;
@@ -138,10 +152,10 @@
 	//- 标题通用样式
 	.title {
 	    height: 34px;
-	    border: 1px solid #b5b5b5;
-	    background: $blue;
+	    background: #f0f0f0;
 	    line-height: 34px;
 	    padding-left: 35px;
+	    padding-right: 10px;
 	    position: relative;
 
 	    i {
@@ -158,25 +172,30 @@
 	    span,a {
     	    font-size: 14px;
 		    font-weight: bold;
-		    color: #fff;
+	    	color: #6e6568;
 	    }
 	}
 	// 新闻
 	._pro-new-txt {
-	    margin-top: 5px;
-    	padding: 10px;
+		height: 140px;
+		padding: 10px 10px 0;
+		overflow: hidden;
 
-    	ul {
     		li {
 			    float: left;
+			    width: 100%;
 			    display: inline-block;
-			    width: 378px;
-			    height: 22px;
-			    line-height: 22px;
+			    height: 20px;
+			    line-height: 20px;
 			    overflow: hidden;
 
 			    a:hover {
 			    	color: #800000;
+			    }
+
+			    span.time {
+			    	float: right;
+			    	cursor: default;
 			    }
 
 			    i {
@@ -187,7 +206,7 @@
 				    margin-right: 8px;
 			    }
     		}
-    	}
+    	
 	}
 	// 热卖商品
 	.scroll-pro {
@@ -219,7 +238,7 @@
 				    height: 30px;
 				    line-height: 30px;
 				    border-radius: 15px;
-				    background: #A71C24;
+				    background: #6e6568;
 				    color: #fff;
 				    font-size: 18px;
 				    font-weight: bold;
@@ -243,12 +262,12 @@
 
 				p.p {
 			    	font-size: 14px;
-				    color: #A71C24;
+				    color: #6e6568;
 				    font-weight: bold;
 				    text-align: center;
 				    line-height: 25px;
 				    padding-bottom: 5px;
-				    color: #A71C24;
+				    color: #6e6568;
 				}
 			}
 	    }
@@ -256,40 +275,31 @@
 	//- 最新商品
 	._pro-new-pic {
 		.pro-tab {
-		    border-top: 10px solid #232323;
+		    border-top: 10px solid #6e6568;
 		    position: relative;
 		    height: 28px;
 
 		    span {
 		    	display: inline-block;
-			    width: 167px;
+		    	transition: background .2s linear 0, box-shadow .2s linear 0;
+		    	-webkit-transition: background .2s linear 0, box-shadow .2s linear 0;
+		    	background-color: #6e6568;
 			    height: 30px;
 			    line-height: 30px;
 			    text-align: center;
 			    color: #fff;
-			    position: absolute;
-			    top: -10px;
 			    cursor: pointer;
+			    z-index: 1;
+			    padding: 5px 10px;
+			    border-bottom-left-radius: 8px;
+			    border-bottom-right-radius: 8px;
+			    margin-top: -10px;
+			   	margin-left: 10px;
 		    }
 
-		    span.t-1 {
-			    left: 0px;
-    			z-index: 5;
-		    }
-
-		    span.t-2 {
-			    left: 150px;
-    			z-index: 4;
-		    }
-
-		    span.t-3 {
-			    left: 300px;
-    			z-index: 3;
-		    }
-
-		    span.t-4 {
-			    left: 450px;
-    			z-index: 2;
+		    span:hover {
+		    	box-shadow: 1px 1px 8px rgba(0,0,0,.5);
+		    	background-color: #6e6568H;
 		    }
 		}
 		
@@ -311,6 +321,8 @@
 	}
 	//- 使用指南
 	._handbook {
+		padding: 10px;
+		
 		.alone-left,.alone-right {
 		    width: 378px;
 		    font-size: 13px;
@@ -354,6 +366,7 @@
 		    float: left;
 
 		    .pro-ibox {
+		    	position: relative;
 	    	    width: 340px;
 			    height: 340px;
 			    overflow: hidden;
@@ -373,14 +386,31 @@
 		    }
 
 		    p {
-	    	    padding-left: 85px;
+	    	    position: absolute;
+	    	    left: 0;
+	    	    bottom: 0;
+	    	    width: 100%;
 
 	    	    a.prev,a.next {
+	    	    	padding: 8px;
+	    	    	color: #fff;
+	    	    	box-sizing: border-box;
     	    	    display: inline-block;
 				    float: left;
-				    width: 50px;
-				    margin-right: 15px;
+				    width: 50%;
+				    text-align: center;
+				    background-color: rgba(0,0,0,.5);
+				    transition: background .2s linear 0s;
+
+				    &:hover {
+						background-color: rgba(0,0,0,.6);
+				    }
 	    	    }
+
+				a.prev {
+					border-right: 1px solid #fff;
+				}
+
 		    }
 
 		    .txt {
@@ -396,11 +426,10 @@
 	    	float: right;
 		    width: 410px;
 		    padding: 5px;
-		    border:1px solid #ccc;
 
 		    h1 {
 		    	font-size: 14px;
-			    background: #A71C24;
+			    background: #6e6568;
 			    color: #fff;
 			    padding: 5px;
 		    }
@@ -442,15 +471,12 @@
 }
 //- 品牌专区
 ._brand {
-    border: 1px solid #b5b5b5;
     background: #fff;
     padding: 10px;
 
     .title {
     	width: 719px;
     	height: 34px;
-	    border-bottom: 1px solid #b5b5b5;
-	    background: $blue;
 	    line-height: 34px;
 	    padding-left: 35px;
 	    position: relative;
@@ -468,19 +494,18 @@
 	    }
     }
 
-    .box {
-    	a {
-		    display: block;
-		    overflow: hidden;
-		    float: left;
-		    width: 189px;
-		    height: 98px;
+	a {
+	    display: block;
+	    overflow: hidden;
+	    float: left;
+	    width: 187px;
+	    height: 98px;
+	    margin: 1px;
 
-		    img {
-		    	width: 187px;
-		    }
-    	}
-    }
+	    img {
+	    	width: 187px;
+	    }
+	}
 }
 //- 购物车组件
 ._shopTrolley {
@@ -567,26 +592,33 @@
 }
 //- 公用框架
 ._box {
+	box-shadow: 0 2px 10px #cdcdcd;
+	
 	.tab-title {
 		height: 33px;
-	    background: #fff;
-	    border-top: 6px solid $blue;
+	    border-top: 6px solid #6e6568;
 
     	span {
-		    float: left;
-		    display: block;
-		    width: 167px;
+	        display: inline-block;
+		    transition: background .2s linear 0,box-shadow .2s linear 0;
+		    -webkit-transition: background .2s linear 0,box-shadow .2s linear 0;
+		    background-color: #6e6568;
 		    height: 30px;
 		    line-height: 30px;
-		    font-size: 16px;
 		    text-align: center;
 		    color: #fff;
+		    cursor: pointer;
+		    z-index: 1;
+		    padding: 5px 10px;
+		    border-bottom-left-radius: 8px;
+		    border-bottom-right-radius: 8px;
+		    margin-top: -6px;
+		    margin-left: 10px;
 		}
 	}
 
 	.tab-box {
 		padding: 15px;
-    	border-top: 1px solid #b5b5b5;
     	min-height: 200px;
 	}
 }
@@ -682,7 +714,7 @@
 		    display: inline-block;
 		    height: 26px;
 		    width: 163px;
-		    background: $blue;
+		    background: #6e6568;
 		    text-align: center;
 		    margin-right: 20px;
 		    margin-bottom: 9px;

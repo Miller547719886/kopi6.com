@@ -16,9 +16,33 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 // HTML
 <i class="icon icon-home"></i>
 */
-.icon-close {
+.icon-buy {
   background-image: url(../img/sprite_1.png);
   background-position: 0px -346px;
+  width: 32px;
+  height: 32px;
+}
+.icon-buyH {
+  background-image: url(../img/sprite_1.png);
+  background-position: -64px -346px;
+  width: 32px;
+  height: 32px;
+}
+.icon-class {
+  background-image: url(../img/sprite_1.png);
+  background-position: -419px -285px;
+  width: 16px;
+  height: 16px;
+}
+.icon-close {
+  background-image: url(../img/sprite_1.png);
+  background-position: -96px -346px;
+  width: 32px;
+  height: 32px;
+}
+.icon-goods {
+  background-image: url(../img/sprite_1.png);
+  background-position: -192px -346px;
   width: 32px;
   height: 32px;
 }
@@ -40,21 +64,45 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   width: 201px;
   height: 37px;
 }
-.icon-star {
+.icon-item {
   background-image: url(../img/sprite_1.png);
   background-position: -403px -285px;
   width: 16px;
   height: 16px;
 }
+.icon-mail {
+  background-image: url(../img/sprite_1.png);
+  background-position: -128px -346px;
+  width: 32px;
+  height: 32px;
+}
+.icon-mailH {
+  background-image: url(../img/sprite_1.png);
+  background-position: -160px -346px;
+  width: 32px;
+  height: 32px;
+}
 .icon-tab_03 {
   background-image: url(../img/sprite_1.png);
-  background-position: -201px -309px;
+  background-position: -368px -309px;
   width: 167px;
   height: 30px;
 }
 .icon-tab_06 {
   background-image: url(../img/sprite_1.png);
-  background-position: -368px -309px;
+  background-position: -201px -309px;
   width: 167px;
   height: 30px;
+}
+.icon-up {
+  background-image: url(../img/sprite_1.png);
+  background-position: -32px -346px;
+  width: 32px;
+  height: 32px;
+}
+.icon-upH {
+  background-image: url(../img/sprite_1.png);
+  background-position: -224px -346px;
+  width: 32px;
+  height: 32px;
 }

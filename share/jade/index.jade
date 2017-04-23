@@ -12,5 +12,12 @@ block spec-script
 	+func-scroll-v
 	+func-scroll-h
 	+func-tab
+	script(src="../plugins/carousel.js")
+	script.
+		var $c = $('.slideBox');
+		$c.setCarousel({
+			width : 1000,
+			height : 426,
+		});
 
 

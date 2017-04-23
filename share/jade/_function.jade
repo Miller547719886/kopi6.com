@@ -66,7 +66,7 @@ mixin func-scroll-v
 				var _this = $(this),
 					$d_f = _this.find('.js-scroll1'),
 					$d_s = _this.find('.js-scroll2'),
-					$d_f_i = $d_f.find('.item'),
+					$d_f_i = $d_f.find('.js-item'),
 					d_h = _this.height();
 				_this.css({
 					"height":d_h,
@@ -141,7 +141,7 @@ mixin func-tab
 					$c.css({
 						marginLeft: -778 * ($t_i.index(_this)) + 'px'
 					});
-					_this.addClass('icon-tab_06').siblings().removeClass('icon-tab_06');
+					_this.addClass('active').siblings().removeClass('active');
 				})
 			})
 		});

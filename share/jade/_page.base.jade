@@ -13,7 +13,7 @@ html
 			block spec-css-js
 
 	//- 导入mixin集合
-	include _mixins-components
+	include @mixins-components
 
 	body(class=pageClass)
 		.wrap-1000
@@ -46,6 +46,7 @@ html
 			block footer
 				+_footer
 			block side_bar
+				+_sidebar
 	block script
 		script(src="../plugins/jquery-1.12.4/jquery.1.12.4.min.js")
 		block spec-script
