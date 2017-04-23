@@ -18,7 +18,7 @@
 				hideBottomBar : false,
 				width : null,
 				height : null,
-				bottomBarType: 'dot'//dot,long-dot,square,Rectangle
+				bottomBarType: 'square'//dot,long-dot,square,Rectangle
 			},
 			//定义滚动顺序:ASC/DESC.ADD.JENA.201208081718
 			order_by = 'ASC',
@@ -74,8 +74,8 @@
 						var a = $(n).find('a'), 
 							text = a.attr('title'), 
 							href = a.attr('href'), 
-							css = '';
-						(i == 0) && (css = 'active');
+							css = opts.bottomBarType;
+						(i == 0) && (css += ' active');
 						$('<a>').attr('href', href)
 								.text(text)
 								.addClass(css)

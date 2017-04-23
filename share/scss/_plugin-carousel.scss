@@ -17,3 +17,29 @@ div.slideBox div.tips div.title a:hover{ text-decoration:underline !important;}
 div.slideBox div.tips div.nums{ position:absolute; right:0px; top:0px; height:100%;}
 div.slideBox div.tips div.nums a{ display:inline-block; float:left; width:20px; height:20px; background-color:#FFF; text-indent:-99999px; margin:15px 10px 0px 0px;}
 div.slideBox div.tips div.nums a.active{ background-color:#093;}
+div.slideBox {
+	div.tips {
+		div.nums {
+			a {
+				-webkit-transition: all .2s linear 0s;
+				transition: all .2s linear 0s;
+				&.dot {
+					border-radius: 20px;
+				}
+
+				&.long-dot {
+					border-radius: 20px;
+
+					&.active {
+						width: 40px;
+					}
+				}
+
+				&.rectangle {
+					width: 30px;
+					height: 4px;
+				}
+			}
+		}
+	}
+}
