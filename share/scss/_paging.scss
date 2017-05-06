@@ -6,7 +6,7 @@
  */
 
 ._paging {
-    border-top: 2px solid #6e6568;
+    border-top: 2px solid $blue;
     line-height: 45px;
     position: relative;
     
@@ -38,7 +38,7 @@
 		    }
 
 		    &.current {
-	    	    background: #6e6568;
+	    	    background: $blue;
     			color: #fff;
 		    }
 		}

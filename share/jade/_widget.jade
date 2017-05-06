@@ -19,6 +19,10 @@ mixin _box(n)
 			span #{n}
 		.tab-box
 
+//- 侧边产品信息
+mixin _side-info
+	._side-info
+
 //- ems
 mixin _ems
 	+_widget('EMS追踪', 'wid-side-r')
@@ -40,7 +44,7 @@ mixin _ems
 				ul.demo2.js-scroll2
 //- 最新制品
 mixin _pro-new
-	+_widget('最新制品', 'wid-side-r')
+	+_widget('最新制品')
 		._pro-new.border
 			.demo.js-scroll-v(data-height="485")
 				ul.demo1.js-scroll1
@@ -98,34 +102,32 @@ mixin _pro-new-txt
 				span.time 16/10/10
 //- 热卖商品
 mixin _pro-sell
-	+_widget('売り上げランキング', 'wid-side-l')
+	+_widget('売り上げランキング')
 		._pro-sell.fn-clear.js-scroll-h
 			.scroll-auto.fn-clear
-				.scroll1.fn-clear
-					mixin item
-						.item
-							span 1
-							.ibox
-								.img
-									a(href="")
-										img(src="../img/201642011149160101.jpg", alt="")
-							p.t
-								a(href="") カルティエ ミニサントス コピー ドゥモワゼル W25077X9
-							p.p N品：19000円 
-					+item 
-					+item 
-					+item  
-					+item 
-					+item 
-					+item 
-					+item 
-				.scroll2.fn-clear
+				mixin item
+					.pro-item
+						span 1
+						.ibox
+							.img
+								a(href="")
+									img(src="../img/201642011149160101.jpg", alt="")
+						p.t
+							a(href="") カルティエ ミニサントス コピー ドゥモワゼル W25077X9
+						p.p N品：19000円 
+				+item 
+				+item 
+				+item  
+				+item 
+				+item 
+				+item 
+				+item 
 //- 人气商品
 mixin _pro-hot
 	+_widget('人気商品')
 		._pro-hot.fn-clear
 			mixin item
-				.item
+				.pro-item
 					.ibox
 						.img
 							a(href="")
@@ -149,7 +151,7 @@ mixin _pro-relate
 	+_widget('相關產品')
 		._pro-relate.fn-clear
 			mixin item
-				.item
+				.pro-item
 					.ibox
 						.img
 							a(href="")
@@ -171,17 +173,12 @@ mixin _pro-relate
 //- 最新商品
 mixin _pro-new-pic
 	+_widget('一番新しいアップロード')
-		._pro-new-pic
-			.pro-tab.top.fn-clear
-				span スーパーコピー時計
-				span スーパーコピーバッグ
-				span スーパーコピー財布
-				span その他商品
-			.tab-pro-box.fn-clear
+		._pro-new-pic.top
+			+_tab('スーパーコピー時計', 'スーパーコピーバッグ', 'スーパーコピー財布', 'その他商品')
 				mixin box
 					.box.fn-clear
 						mixin item
-							.item
+							.pro-item
 								.ibox
 									.img
 										a(href="")
@@ -200,9 +197,6 @@ mixin _pro-new-pic
 						+item
 						+item
 						+item
-				+box
-				+box
-				+box
 				+box
 //- 使用指南
 mixin _handbook
@@ -403,7 +397,7 @@ mixin _pro-search
 	+_widget('当面の位置：ホーム >> 檢索')
 		._pro-search.fn-clear
 			mixin item
-				.item
+				.pro-item
 					.ibox
 						.img
 							a(href="")

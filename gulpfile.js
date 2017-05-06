@@ -1,3 +1,10 @@
+/**
+ *  @module 页面重构库
+ *  @author Rufer <547719886@qq.com>
+ *  @license GPL-3.0+
+ *  @copyright © 2017 https://github.com/Miller547719886
+ */
+
 'use strict';
 
 var gulp = require('gulp'),                         // gulp核心模块
@@ -7,9 +14,10 @@ var gulp = require('gulp'),                         // gulp核心模块
 	IMG_DEST = 'var/img',                        // img编译目录
 	HTML_DEST = 'var/build',                       // html编译目录
 	WEB_PORT = 80,                                // 服务器监听的端口
+
 	$ = require('gulp-load-plugins')();             // gulp插件加载模块
 	
-	 // var sass = require('gulp-sass'),	              // sass与编译模块
+	// var sass = require('gulp-sass'),	              // sass与编译模块
 	// 	jade = require('gulp-jade'),                  // jade与编译模块
 	// 	autoprefixer = require('gulp-autoprefixer'), // 浏览器前缀自动补全
 	// 	minifyCss = require('gulp-minify-css'),	    // 压缩css
@@ -26,11 +34,11 @@ var gulp = require('gulp'),                         // gulp核心模块
 	// 	sequence = require('gulp-sequence'),         // gulp任务执行队列
 	// 	connect = require('gulp-connect'),           // node本地服务器
 	// 	livereload = require('gulp-livereload');     // 浏览器即时刷新
-		    
+	
 
 // 处理样式
 gulp.task('styles', function() {
-	return gulp.src(['share/scss/**/kopi6.scss','share/spriteCSS/**/*.css'])
+	return gulp.src(['share/scss/**/kopi6.scss', 'share/spriteCSS/**/*.css'])
 		.pipe($.sass())
 		.pipe($.autoprefixer('last 2 version','safari 5','ie 8','ie 9','opera 12.1','ios 6','android 4'))
 		.pipe($.minifyCss())
@@ -44,12 +52,20 @@ gulp.task('styles', function() {
 
 //处理jade-html
 gulp.task('htmls', function() {
-	return gulp.src(['share/jade/**/*.jade','!share/jade/**/_*.jade'])
+	return gulp.src(['share/jade/**/*.jade', '!share/jade/**/_*.jade', '!share/jade/**/@*.jade'])
 		.pipe($.jade({pretty: '\t'}))
 		// .pipe($.rename({
 		// 	suffix: '.min'
 		// }))
 		// .pipe($.minifyHtml())
+		.pipe($.htmlBeautify({
+            indent_size: 4,
+            indent_char: ' ',
+            // 这里是关键，可以让一个标签独占一行
+            unformatted: true,
+            // 默认情况下，body | head 标签前会有一行空格
+            extra_liners: []
+        }))
 		.pipe(gulp.dest(HTML_DEST))
 		.pipe($.livereload())
 		// .pipe($.notify({
@@ -76,7 +92,7 @@ gulp.task('scripts', function() {
 });
 
 // 处理图片
-gulp.task('images', ['sprite'], function() {
+gulp.task('images', function() {
 	return gulp.src(['share/img/**/*.*', '!share/img/sprite/**/*.*'])
 		.pipe($.cache($.imagemin({
 			optimizationLevel: 3,
@@ -91,18 +107,25 @@ gulp.task('images', ['sprite'], function() {
 });
 
 // 压缩图片并合并雪碧图
-gulp.task('sprite',function () {
-	var spriteData = gulp.src('share/img/sprite/sprite_1/*.*')
-		.pipe($.cache($.imagemin({
-			optimizationLevel: 3,
-			progressive: true,
-			interlaced: true
-		})))
-		.pipe($.spritesmith({
-		    imgName: 'share/img/sprite_1.png',
-		    cssName: 'share/spriteCSS/sprite_1.css'
-		}));
-	return spriteData.pipe(gulp.dest(''));
+var $spritesmith = require('gulp.spritesmith-multi'),
+	$merge = require('merge-stream');
+
+gulp.task('sprite', function() {
+	var spriteData = gulp.src('share/img/sprite/**/*.*')
+			.pipe($spritesmith({
+				spritesmith: function (options, sprite) {
+		            options.cssName = sprite + '.scss';
+		            options.cssSpritesheetName = sprite;
+		        }
+			}));
+
+	var imgStream = spriteData.img
+      .pipe(gulp.dest('share/img'));
+
+    var cssStream = spriteData.css
+      .pipe(gulp.dest('share/spriteCSS'));
+
+	return $merge(imgStream, cssStream);
 });
 
 // 清理build目录
@@ -132,7 +155,7 @@ gulp.task('watch', function() {
 	$.livereload.listen();
 
 	// 监听sprite
-	gulp.watch('share/img/sprite/**/*.*', ['sprite']);
+	gulp.watch('share/img/sprite/**/*.*', ['sprite', 'images']);
 
 	// 监听sass
 	gulp.watch(['share/scss/**/*.scss','share/spriteCSS/**/*.css'], ['styles']);
@@ -141,7 +164,7 @@ gulp.task('watch', function() {
 	gulp.watch('var/js/**/*.js', ['scripts']);
 
 	// 监听图片
-	gulp.watch('share/img/**/*', ['images']);
+	gulp.watch(['share/img/**/*.*', '!share/img/sprite/**/*.*'], ['images']);
 
 	// 监听html
 	gulp.watch('share/jade/**/*.jade', ['htmls']);
@@ -150,7 +173,7 @@ gulp.task('watch', function() {
 
 // build任务
 gulp.task('build', function(cb){
-	$.sequence('clean',['sprite', 'styles', 'scripts', 'images','htmls', 'watch'])(cb)
+	$.sequence('clean',['sprite', 'styles', 'scripts', 'images', 'htmls', 'watch'])(cb)
 });
 
 // 主任务

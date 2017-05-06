@@ -4,14 +4,71 @@
  *  @license GPL-3.0+
  *  @copyright © 2017 https://github.com/Miller547719886
  */
+//- tab切换
+._tab {
+	.tab-nav {
+	    border-top: 10px solid $blue;
+	    position: relative;
+	    height: 28px;
 
+	    span {
+	    	display: inline-block;
+	    	transition: background .2s linear 0, box-shadow .2s linear 0;
+	    	-webkit-transition: background .2s linear 0, box-shadow .2s linear 0;
+	    	background-color: $blue;
+		    height: 30px;
+		    line-height: 30px;
+		    text-align: center;
+		    color: #fff;
+		    cursor: pointer;
+		    z-index: 1;
+		    padding: 5px 10px;
+		    border-bottom-left-radius: 8px;
+		    border-bottom-right-radius: 8px;
+		    margin-top: -10px;
+		   	margin-left: 10px;
+	    }
+
+	    span:hover {
+	    	box-shadow: 1px 1px 8px rgba(0,0,0,.5);
+	    	background-color: $blueH;
+	    }
+	}
+	
+	.tab-content {
+		margin-top: 10px;
+		transition: all .8s ease-in 0s;
+
+		.box {
+			.item {
+				width: 143px;
+			    float: left;
+			    margin: 20px 0 20px 11px;
+			}
+		}
+
+		.tab-pane {
+			width: 100%;
+			height: 100%;
+			display: none;
+			opacity: 0;
+			-webkit-transition: all .3s linear 0s;
+			transition: all .3s linear 0s;
+
+			&.active {
+				display: block;
+				opacity: 1;
+			}
+		}
+	}
+}
 //- 导航栏
 ._nav {
 	height: 36px;
 	line-height: 36px;
 	margin-bottom: 15px;
 	font-size: 14px;
-	background-color: #6e6568;
+	background-color: $blue;
 	text-align: center;
 
     a {
@@ -39,20 +96,37 @@
 //- 侧边导航
 ._side-nav {
     border-bottom: 0;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px #cdcdcd;
 
     .title {
-    	padding: 0 3px;
-		color: #6e6568;
+	    height: 34px;
+	    background: $blue;
+	    line-height: 34px;
+	    padding-left: 35px;
+	    padding-right: 10px;
+	    position: relative;
+
+	    i {
+	    	display: block;
+		    width: 17px;
+		    height: 16px;
+		    border-radius: 3px;
+		    left: 10px;
+		    position: absolute;
+		    top: 8px;
+	    }
 		
 		span {
-			margin-left: 5px;
-			font-size: 18px;
-			vertical-align: text-top;
+			font-size: 14px;
+		    font-weight: 700;
+		    color: #fff;
 		}
     }
 
     .subtitle {
-    	background: #4E4646;
+    	background: $lightBlue;
+    	border-bottom: 1px solid #fff;
     	position: relative;
 	    height: 35px;
 	    font-weight: 700;
@@ -88,7 +162,7 @@
     }
 
     ul {
-    	background-color: #6e6568;
+    	background-color: $lightBlue;
 
 
 		li {
@@ -98,7 +172,7 @@
 		    position: relative;
 
 			&:hover {
-				background-color: #999395;
+				background-color: $lightBlueH;
 			}
 
 		    a {

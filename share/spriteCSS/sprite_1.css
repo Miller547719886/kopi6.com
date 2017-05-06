@@ -24,7 +24,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 .icon-buyH {
   background-image: url(../img/sprite_1.png);
-  background-position: -64px -346px;
+  background-position: -96px -346px;
   width: 32px;
   height: 32px;
 }
@@ -36,7 +36,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 .icon-close {
   background-image: url(../img/sprite_1.png);
-  background-position: -96px -346px;
+  background-position: -64px -346px;
   width: 32px;
   height: 32px;
 }
@@ -66,7 +66,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 .icon-item {
   background-image: url(../img/sprite_1.png);
-  background-position: -403px -285px;
+  background-position: -435px -285px;
   width: 16px;
   height: 16px;
 }
@@ -81,6 +81,12 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   background-position: -160px -346px;
   width: 32px;
   height: 32px;
+}
+.icon-mail_small {
+  background-image: url(../img/sprite_1.png);
+  background-position: -403px -285px;
+  width: 16px;
+  height: 16px;
 }
 .icon-tab_03 {
   background-image: url(../img/sprite_1.png);

@@ -29,9 +29,7 @@ html
 						.fn-clear
 							+_pro-new-txt('一番新しいアップロード')
 							+_ems
-						.fn-clear
-							+_pro-sell
-							+_pro-new
+						+_pro-sell
 						+_pro-hot
 						+_pro-new-pic
 						+_handbook
@@ -39,6 +37,8 @@ html
 				.left.fn-clear
 					block left
 						+_side-nav
+						+_pro-new
+						+_side-info
 				.pop-box
 					block pop
 						+_pop-login

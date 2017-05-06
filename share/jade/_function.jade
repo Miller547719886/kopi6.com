@@ -56,7 +56,7 @@ mixin func-scroll-v
 			a.scrollTop++;
 			var r_h = b.offsetHeight - parseInt(_b.css('paddingTop')) * 2;
 			if (a.scrollTop >= r_h) {
-				a.scrollTop=0;   
+				a.scrollTop = 0;   
 			}
 		}
 	
@@ -91,57 +91,63 @@ mixin func-scroll-v
 //- 无缝滚动-横向
 mixin func-scroll-h
 	script.
-		function scroll_h(_a,_b) {
-			var b = _b.get(0),
-				l = parseInt(_a.css('marginLeft'));
-			var r_w = b.offsetWidth - parseInt(_b.css('paddingLeft')) * 2;
-			_a.css('marginLeft',l-1);
-			if (Math.abs(l) >= r_w) {
-				_a.css('marginLeft',0);
-			}
-		}
-
-		$(function() {
-			var $d = $('.js-scroll-h');
-			$d.each(function(index,element) {
-				var _this = $(this),
-					$d_b = _this.find('.scroll-auto'),
-					$d_f = _this.find('.scroll1'),
-					$d_s = _this.find('.scroll2'),
-					$d_f_i = $d_f.find('.item'),
-					d_w = _this.width();
-
-				$d_f_i.clone().appendTo($d_s);
-				var t = setInterval(function() {
-					scroll_h($d_b,$d_f);
-				},50);
-				_this.on({
-					mouseover:function() {
-						clearInterval(t);
-					},
-					mouseout:function() {
-						t = setInterval(function() {
-							scroll_h($d_b,$d_f);
-						},50);
-					}
-				});
-			});
-		});
+		 $(function() {
+			 	var setScroll = function($ele, $node) {
+			 		var marginL = parseInt($ele.css('marginLeft')),
+			 			width = $ele.get(0).offsetWidth - parseInt($ele.css('paddingLeft')) * 2,
+			 			itemEdge = $ele.find('.pro-item').first().width() + parseInt($ele.find('.pro-item').first().css('marginLeft')) + parseInt($ele.find('.pro-item').first().css('marginRight'));
+			 		$ele.css('marginLeft', marginL - 1 + 'px');
+			 		if (Math.abs(marginL) >= itemEdge) {
+			 			$ele.find('.pro-item').first().appendTo($ele);
+			 			$ele.css('marginLeft', 0);
+			 		}
+			 	}
+			 	var interval;
+			 	var stopScroll = function() {
+			 		window.clearInterval(interval);
+			 	};
+			 	var scrollH = function($node, $scroll) {
+			 		var width = $node.width(),
+			 			$items = $scroll.find('.pro-item'),
+			 			scrollLength = $items.length * ($items.width() + parseInt($items.css('marginLeft')));
+			 		$scroll.css('width', scrollLength);
+			 		if (width >= scrollLength) {
+			 			console.log("No Need To Scroll");
+			 		} else {
+			 			var items = $scroll.find('.pro-item'),
+			 				last = items.last();
+			 			interval = setInterval(function() {
+			 				setScroll($scroll, $node);
+			 			}, 50);
+			 			$node.hover(function() {
+			 				stopScroll();
+			 			},function() {
+			 				interval = setInterval(function() {
+			 					setScroll($scroll, $node);
+			 				}, 50);
+			 			});
+			 		}
+			 	}
+			 	var $node = $('.js-scroll-h'),
+			 		$scroll = $node.find('.scroll-auto');
+			 	scrollH($node, $scroll);
+			 });
 //- tab页
 mixin func-tab
 	script.
 		$(function() {
-			var $t = $('.pro-tab'),
+			var $t = $('.tab-nav'),
 				$t_i = $t.find('span'),
-				$c = $('.tab-pro-box'),
+				$c = $('.tab-content'),
 				$c_i = $c.find('.box');
 			$t_i.each(function(index,element) {
 				var _this = $(this);
 				_this.on('mouseover',function(e) {
-					$c.css({
-						marginLeft: -778 * ($t_i.index(_this)) + 'px'
-					});
-					_this.addClass('active').siblings().removeClass('active');
+					var name = $(e.target).data('target'),
+						$pane = $c.find('.tab-pane').filter(function() {
+							return $(this).is('#' + name);
+						});
+					$pane.addClass('active').siblings().removeClass('active');
 				})
 			})
 		});

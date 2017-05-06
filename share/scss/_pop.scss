@@ -6,6 +6,7 @@
  */
 
 ._pop {
+	z-index: 9999;
 	box-sizing: border-box;
 	position: fixed;
 	top: 0;
@@ -26,10 +27,10 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	width: 211px;
+	width: 241px;
 	height: 223px;
 	padding: 5px;
-	margin-left: -105px;
+	margin-left: -120px;
 	margin-top: -59px;
 	background-color: rgba(0, 0, 0, .4);
 
@@ -39,7 +40,7 @@
 		margin-bottom: 15px;
 
 		.title {
-		    background: #6e6568;
+		    background: $blue;
 		    font-size: 14px;
 		    color: #fff;
 		    text-align: center;
@@ -60,7 +61,7 @@
 				}
 
 				input.ipt {
-				    width: 90px;
+				    width: 125px;
 				    padding: 2px;
 				}
 

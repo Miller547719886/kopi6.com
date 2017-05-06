@@ -1,3 +1,18 @@
+mixin _tab
+	._tab
+		.tab-nav.fn-clear
+			- for (var i = 0, len = arguments.length; i < len; i++) {
+				span(data-target = 'tab-' + i) #{arguments[i]}
+			- }
+		.tab-content.fn-clear
+			- for (var i = 0, len = arguments.length; i < len; i++) {
+				div.tab-pane(class = (i === 0 ? 'active' : ''), id = 'tab-' + i)
+					if block
+						block
+					else
+						12345
+			- }
+
 //- mixin-导航栏
 mixin _nav
 	._nav
@@ -13,7 +28,7 @@ mixin _nav
 mixin _side-nav
 	._side-nav
 		.title
-			i.icon-goods
+			i.icon-item
 			span 商品一览
 		mixin item
 			.subtitle

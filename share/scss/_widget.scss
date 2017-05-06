@@ -71,7 +71,7 @@
     			top: 0;
 
     			li {
-    				color: #6e6568;
+    				color: $red;
 				    height: 60px;
 				    overflow: hidden;
     			}
@@ -112,7 +112,7 @@
 	}
 
 	//- 列表单项通用样式
-	.item {
+	.pro-item {
 	    width: 143px;
 	    float: left;
 	    margin: 20px 0 20px 11px;
@@ -129,7 +129,7 @@
 
 		p.p {
 			font-size: 14px;
-		    color: #6e6568;
+		    color: $red;
 		    font-weight: bold;
 		    text-align: center;
 		    line-height: 25px;
@@ -141,18 +141,22 @@
 		    width: 110px;
 		    height: 29px;
 		    border-radius: 4px;
-		    background: #6e6568;
+		    background: $red;
 		    text-align: center;
 		    line-height: 29px;
 		    font-size: 14px;
 		    color: #fff;
 		    margin: 0 auto;
+
+		    &:hover {
+		    	background: $redH;
+		    }
 		}
 	}
 	//- 标题通用样式
 	.title {
 	    height: 34px;
-	    background: #f0f0f0;
+	    background: $blue;
 	    line-height: 34px;
 	    padding-left: 35px;
 	    padding-right: 10px;
@@ -172,7 +176,7 @@
 	    span,a {
     	    font-size: 14px;
 		    font-weight: bold;
-	    	color: #6e6568;
+	    	color: #fff;
 	    }
 	}
 	// 新闻
@@ -216,18 +220,15 @@
     	overflow: hidden;
 	}
 	._pro-sell{
-	    width: 778px;
+	    // width: 778px;
 	    height: 279px;
+	    overflow: hidden;
 	    
 	    .scroll-auto {
-	    	width: 10000px;
-	    }
-
-	    .scroll1,.scroll2 {
 	    	float: left;
 	    	display: inline-block;
 			
-			.item {
+			.pro-item {
 				background: #f4f3f3;
 			    padding-top: 20px;
 			    position: relative;
@@ -238,7 +239,7 @@
 				    height: 30px;
 				    line-height: 30px;
 				    border-radius: 15px;
-				    background: #6e6568;
+				    background: $red;
 				    color: #fff;
 				    font-size: 18px;
 				    font-weight: bold;
@@ -262,62 +263,61 @@
 
 				p.p {
 			    	font-size: 14px;
-				    color: #6e6568;
+				    color: $red;
 				    font-weight: bold;
 				    text-align: center;
 				    line-height: 25px;
 				    padding-bottom: 5px;
-				    color: #6e6568;
 				}
 			}
 	    }
 	}
 	//- 最新商品
 	._pro-new-pic {
-		.pro-tab {
-		    border-top: 10px solid #6e6568;
-		    position: relative;
-		    height: 28px;
+		// .tab-nav {
+		//     border-top: 10px solid $blue;
+		//     position: relative;
+		//     height: 28px;
 
-		    span {
-		    	display: inline-block;
-		    	transition: background .2s linear 0, box-shadow .2s linear 0;
-		    	-webkit-transition: background .2s linear 0, box-shadow .2s linear 0;
-		    	background-color: #6e6568;
-			    height: 30px;
-			    line-height: 30px;
-			    text-align: center;
-			    color: #fff;
-			    cursor: pointer;
-			    z-index: 1;
-			    padding: 5px 10px;
-			    border-bottom-left-radius: 8px;
-			    border-bottom-right-radius: 8px;
-			    margin-top: -10px;
-			   	margin-left: 10px;
-		    }
+		//     span {
+		//     	display: inline-block;
+		//     	transition: background .2s linear 0, box-shadow .2s linear 0;
+		//     	-webkit-transition: background .2s linear 0, box-shadow .2s linear 0;
+		//     	background-color: $blue;
+		// 	    height: 30px;
+		// 	    line-height: 30px;
+		// 	    text-align: center;
+		// 	    color: #fff;
+		// 	    cursor: pointer;
+		// 	    z-index: 1;
+		// 	    padding: 5px 10px;
+		// 	    border-bottom-left-radius: 8px;
+		// 	    border-bottom-right-radius: 8px;
+		// 	    margin-top: -10px;
+		// 	   	margin-left: 10px;
+		//     }
 
-		    span:hover {
-		    	box-shadow: 1px 1px 8px rgba(0,0,0,.5);
-		    	background-color: #6e6568H;
-		    }
-		}
+		//     span:hover {
+		//     	box-shadow: 1px 1px 8px rgba(0,0,0,.5);
+		//     	background-color: $blueH;
+		//     }
+		// }
 		
-		.tab-pro-box {
-			width: 3890px;
-			transition: all .8s ease-in 0s;
+		// .tab-content {
+		// 	width: 3890px;
+		// 	transition: all .8s ease-in 0s;
 
-			.box {
-			    float: left;
-    			width: 778px;
+		// 	.box {
+		// 	    float: left;
+  //   			width: 778px;
 
-    			.item {
-    				width: 143px;
-				    float: left;
-				    margin: 20px 0 20px 11px;
-    			}
-			}
-		}
+  //   			.item {
+  //   				width: 143px;
+		// 		    float: left;
+		// 		    margin: 20px 0 20px 11px;
+  //   			}
+		// 	}
+		// }
 	}
 	//- 使用指南
 	._handbook {
@@ -429,7 +429,7 @@
 
 		    h1 {
 		    	font-size: 14px;
-			    background: #6e6568;
+			    background: $blue;
 			    color: #fff;
 			    padding: 5px;
 		    }
@@ -596,13 +596,13 @@
 	
 	.tab-title {
 		height: 33px;
-	    border-top: 6px solid #6e6568;
+	    border-top: 6px solid $blue;
 
     	span {
 	        display: inline-block;
 		    transition: background .2s linear 0,box-shadow .2s linear 0;
 		    -webkit-transition: background .2s linear 0,box-shadow .2s linear 0;
-		    background-color: #6e6568;
+		    background-color: $blue;
 		    height: 30px;
 		    line-height: 30px;
 		    text-align: center;
@@ -714,7 +714,7 @@
 		    display: inline-block;
 		    height: 26px;
 		    width: 163px;
-		    background: #6e6568;
+		    background: $blue;
 		    text-align: center;
 		    margin-right: 20px;
 		    margin-bottom: 9px;

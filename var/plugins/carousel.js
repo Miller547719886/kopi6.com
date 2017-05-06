@@ -8,6 +8,20 @@
  */
 
 !(function($) {
+	/**
+	 *  @params method: 需要进行函数防抖的函数;
+	 *	@params delay: 需要等待的时间, 单位为毫秒;
+	 *	@params immediate: 如果为true, 则debounce会在调用时立刻执行一次fn,而不需要等到wait结束后.
+	 *  @type {[type]}
+	 */
+	
+	function debounce(method, delay, context) {
+	    clearTimeout(method.timer);
+	    method.timer = setTimeout(function () {
+	        method.call(context);
+	    },delay);
+	}
+
 	$.fn.setCarousel = function(options) {
 		var defaults = {
 				switchType : 'left',//left,top,gradient
@@ -30,6 +44,7 @@
 			li_num = $lis.length,
 			li_width = $li_first.width(),
 			li_height = $li_first.height(),
+			animatable = true,
 			opts = $.extend({}, defaults, options || {}),	
 			init = function() {
 				// 是否按标准编写插件基础DOM结构
@@ -73,16 +88,18 @@
 					$lis.each(function(i, n) {
 						var a = $(n).find('a'), 
 							text = a.attr('title'), 
-							href = a.attr('href'), 
+							href = /*a.attr('href')*/'javascript:;', 
 							css = opts.bottomBarType;
 						(i == 0) && (css += ' active');
 						$('<a>').attr('href', href)
-								.text(text)
-								.addClass(css)
-								// TODO 导航条样式
-								.click(function(e){
-									stop();
+							.text(text)
+							.addClass(css)
+							// TODO 导航条样式
+							.on('click', function(e) {
+								if (animatable) {
+									animatable = false;
 									e.preventDefault();
+									stop();
 									$(this).addClass('active')
 										.siblings()
 										.removeClass('active');
@@ -90,11 +107,24 @@
 										.siblings()
 										.removeClass('active');
 									start(); 
-								}).appendTo($nums);
+								}
+								// debounce(function() {
+								// 	_e.preventDefault();
+								// 	console.log(123);
+								// 	stop();
+								// 	$(this).addClass('active')
+								// 		.siblings()
+								// 		.removeClass('active');
+								// 	$ul.find('li:eq('+$(this).index()+')').addClass('active')
+								// 		.siblings()
+								// 		.removeClass('active');
+								// 	start(); 
+								// }, opts.duration);
+							}).appendTo($nums);
 					});
 					// 是否隐藏导航条
 					if (opts.hideClickBar) {
-						$tips.hover(function() {
+						$this.hover(function() {
 							$nums.animate({top: '0px'}, 'fast');
 						}, function(){
 							$nums.animate({top: $tips.height() + 'px'}, 'fast');
@@ -106,7 +136,6 @@
 						$nums.show();
 					}
 				}
-
 				(li_num > 1) && start();
 			},
 			stop = function() {
@@ -131,26 +160,28 @@
 					};
 				}
 				
-				$this.find('.nums').find('a:eq(' + index + ')').addClass('active').siblings().removeClass('active');
-				$this.find('.title').find('a').attr('href', $active_a.attr('href')).text($active_a.attr('title'));
+				$this.find('.nums').find('a:eq(' + index + ')').addClass('active')
+					.siblings()
+					.removeClass('active');
+				$this.find('.title').find('a').attr('href', $active_a.attr('href'))
+					.text($active_a.attr('title'));
 
 				$ul.stop().animate(param, opts.duration * 1000, opts.easing, function() {
 					$active.removeClass('active');
-					
-						if ($active.next().length) {
-							$active.next().addClass('active');
-						} else {
-							$lis.first().addClass('active');
-						}
-					
+					if ($active.next().length) {
+						$active.next().addClass('active');
+					} else {
+						$lis.first().addClass('active');
+					}
+					animatable = true;
 				});
 				$this.data('timeid', window.setTimeout(start, opts.delay * 1000));
 			};
-		$this.hover(function() {
-			stop();
-		}, function() {
-			$this.data('timeid', window.setTimeout(start, opts.delay * 1000));
-		});
+		// $this.hover(function() {
+		// 	stop();
+		// }, function() {
+		// 	$this.data('timeid', window.setTimeout(start, opts.delay * 1000));
+		// });
 		//首张图片加载完毕后执行初始化
 		var imgLoader = new Image();
 		imgLoader.onload = function(){
