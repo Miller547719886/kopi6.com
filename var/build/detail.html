@@ -151,19 +151,19 @@
             <div class="_widget">
                 <div class="_tab">
                     <div class="tab-nav fn-clear">
-                        <span data-target="tab-0">商品詳細</span>
-                        <span data-target="tab-1">返品返金</span>
-                        <span data-target="tab-2">注意事项</span>
+                        <span data-target="tab-1">商品詳細</span>
+                        <span data-target="tab-2">返品返金</span>
+                        <span data-target="tab-3">注意事项</span>
                     </div>
                     <div class="tab-content fn-clear">
-                        <div id="tab-0" class="tab-pane active">
-                            <12345></12345>
-                        </div>
-                        <div id="tab-1" class="tab-pane">
-                            <12345></12345>
+                        <div id="tab-1" class="tab-pane active">
+                            <p>第 1 页</p>
                         </div>
                         <div id="tab-2" class="tab-pane">
-                            <12345></12345>
+                            <p>第 2 页</p>
+                        </div>
+                        <div id="tab-3" class="tab-pane">
+                            <p>第 3 页</p>
                         </div>
                     </div>
                 </div>
@@ -966,86 +966,21 @@
 </body>
 <script src="../plugins/jquery-1.12.4/jquery.1.12.4.min.js"></script>
 <script>
-    function scroll_v(_a, _b) {
-        var a = _a.get(0),
-            b = _b.get(0);
-        a.scrollTop++;
-        var r_h = b.offsetHeight - parseInt(_b.css('paddingTop')) * 2;
-        if (a.scrollTop >= r_h) {
-            a.scrollTop = 0;
-        }
-    }
-
     $(function() {
-        var $d = $('.js-scroll-v');
-        $d.each(function(index, element) {
-            var _this = $(this),
-                $d_f = _this.find('.js-scroll1'),
-                $d_s = _this.find('.js-scroll2'),
-                $d_f_i = $d_f.find('.js-item'),
-                d_h = _this.height();
-            _this.css({
-                "height": d_h,
-                "overflow": "hidden"
-            });
-            $d_f_i.clone().appendTo($d_s);
-            var t = setInterval(function() {
-                scroll_v(_this, $d_f);
-            }, 50);
-            _this.on({
-                mouseover: function() {
-                    clearInterval(t);
-                },
-                mouseout: function() {
-                    t = setInterval(function() {
-                        scroll_v(_this, $d_f);
-                    }, 50);
-                }
-            });
+        var $t = $('.tab-nav'),
+            $t_i = $t.find('span'),
+            $c = $('.tab-content'),
+            $c_i = $c.find('.box');
+        $t_i.each(function(index, element) {
+            var _this = $(this);
+            _this.on('mouseover', function(e) {
+                var name = $(e.target).data('target'),
+                    $pane = $c.find('.tab-pane').filter(function() {
+                        return $(this).is('#' + name);
+                    });
+                $pane.addClass('active').siblings().removeClass('active');
+            })
         })
-    });
-</script>
-<script>
-    $(function() {
-        var setScroll = function($ele, $node) {
-            var marginL = parseInt($ele.css('marginLeft')),
-                width = $ele.get(0).offsetWidth - parseInt($ele.css('paddingLeft')) * 2,
-                itemEdge = $ele.find('.pro-item').first().width() + parseInt($ele.find('.pro-item').first().css('marginLeft')) + parseInt($ele.find('.pro-item').first().css('marginRight'));
-            $ele.css('marginLeft', marginL - 1 + 'px');
-            if (Math.abs(marginL) >= itemEdge) {
-                $ele.find('.pro-item').first().appendTo($ele);
-                $ele.css('marginLeft', 0);
-            }
-        }
-        var interval;
-        var stopScroll = function() {
-            window.clearInterval(interval);
-        };
-        var scrollH = function($node, $scroll) {
-            var width = $node.width(),
-                $items = $scroll.find('.pro-item'),
-                scrollLength = $items.length * ($items.width() + parseInt($items.css('marginLeft')));
-            $scroll.css('width', scrollLength);
-            if (width >= scrollLength) {
-                console.log("No Need To Scroll");
-            } else {
-                var items = $scroll.find('.pro-item'),
-                    last = items.last();
-                interval = setInterval(function() {
-                    setScroll($scroll, $node);
-                }, 50);
-                $node.hover(function() {
-                    stopScroll();
-                }, function() {
-                    interval = setInterval(function() {
-                        setScroll($scroll, $node);
-                    }, 50);
-                });
-            }
-        }
-        var $node = $('.js-scroll-h'),
-            $scroll = $node.find('.scroll-auto');
-        scrollH($node, $scroll);
     });
 </script>
 </html>

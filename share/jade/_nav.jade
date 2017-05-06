@@ -2,15 +2,15 @@ mixin _tab
 	._tab
 		.tab-nav.fn-clear
 			- for (var i = 0, len = arguments.length; i < len; i++) {
-				span(data-target = 'tab-' + i) #{arguments[i]}
+				span(data-target = 'tab-' + (i + 1)) #{arguments[i]}
 			- }
 		.tab-content.fn-clear
 			- for (var i = 0, len = arguments.length; i < len; i++) {
-				div.tab-pane(class = (i === 0 ? 'active' : ''), id = 'tab-' + i)
+				div.tab-pane(class = (i === 0 ? 'active' : ''), id = 'tab-' + (i + 1))
 					if block
 						block
 					else
-						12345
+						p 第 #{i + 1} 页
 			- }
 
 //- mixin-导航栏
